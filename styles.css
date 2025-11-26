@@ -22,7 +22,7 @@
     min-height: 700px;
     margin-left: auto;
     margin-right: auto;
-    gap:5px;
+    gap:10px;
 }
 
 /* Zwei untereinander */
@@ -44,11 +44,11 @@
 }
 
 .ZusatzBox.links {
-    margin-right:5px;
+    margin-right:auto;
     margin-left: 0px;
 }
 
 .ZusatzBox.rechts {
-    margin-left:5px;
+    margin-left:auto;
     margin-right: 0px;
 }
