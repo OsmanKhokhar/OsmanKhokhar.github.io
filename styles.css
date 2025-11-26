@@ -16,6 +16,7 @@
 }
 
 .HauptGerichteBox {
+    display:block;
     width: 618px;
     height: 172px;
     background-color: var(--grayColor);
@@ -26,6 +27,7 @@
 }
 
 .ZusatzBox {
+    display: block;
     width: 304px;
     height: 232px;
     background-color: var(--grayColor);
