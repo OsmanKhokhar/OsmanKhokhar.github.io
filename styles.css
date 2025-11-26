@@ -25,7 +25,7 @@
 }
 
 /* Zwei untereinander */
-.HauptGerichteBox {
+.HauptgerichteBox {
     width: 618px;
     height: 172px;
     background-color: var(--grayColor);
