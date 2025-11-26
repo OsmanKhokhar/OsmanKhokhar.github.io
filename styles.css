@@ -1,7 +1,17 @@
 :root {
     --pinkColor: #C72A67;
+    --grayColor: #1E2428;
 }
 
 .PinkText {
     color:var(--pinkColor);
+}
+
+.BoxFleisch {
+    width: 618px;
+    height: 172px;
+    background-color: var(--grayColor);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
