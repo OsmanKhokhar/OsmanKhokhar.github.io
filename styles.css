@@ -11,6 +11,10 @@
     background-color: var(--grayColor);
 }
 
+.PinkColorBackground {
+    background-color: var(--pinkColor);
+}
+
 .EssensAnzeigeContainer {
     display: flex;
     flex-wrap: wrap;
