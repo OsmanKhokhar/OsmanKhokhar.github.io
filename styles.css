@@ -22,26 +22,21 @@
     min-height: 700px;
     margin-left: auto;
     margin-right: auto;
+    gap: 14px;
 }
 
 /* Zwei untereinander */
 .HauptGerichteBox {
-    display:block;
-    width: 618px;
+    flex: 0 0 618px;
     height: 172px;
     background-color: var(--grayColor);
     border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom:14px;
 }
 
 /* Zwei nebeneinander */
 .ZusatzBox {
-    display: block;
-    width: 304px;
+    flex: 0 0 304px;
     height: 232px;
     background-color: var(--grayColor);
     border-radius: 10px;
-    margin-bottom:14px;
 }
