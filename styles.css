@@ -1,0 +1,7 @@
+:root {
+    --pinkColor: #C72A67;
+}
+
+.PinkText {
+    color:var(--pinkColor);
+}
