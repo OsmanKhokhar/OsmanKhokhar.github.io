@@ -1,0 +1,4 @@
+Background: #000000
+Pink: #C72A67
+Gray: #1E2428
+Green: #29B829
