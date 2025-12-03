@@ -60,11 +60,12 @@
         display: flex;
         flex-wrap: nowrap;
         margin-top: 20px;
+        margin-left: 15px;;
         width:100%;
 
         > div > img {
-            max-height: 40px;
-            margin-right:2px;
+            max-height: 30px;
+            margin-right:5px;
         }
     }
 }
