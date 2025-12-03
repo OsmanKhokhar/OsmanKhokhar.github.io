@@ -55,6 +55,12 @@
         margin-top:5px;
         margin-left:540px;
     }
+
+    > .SterneContainer {
+        margin-top: 20px;
+
+       > img { max-height: 50px;} 
+    }
 }
 
 /* Zwei nebeneinander */
