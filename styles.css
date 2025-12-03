@@ -1,6 +1,7 @@
 :root {
     --pinkColor: #C72A67;
     --grayColor: #1E2428;
+    --greenColor:#29B829;
 }
 
 .PinkText {
@@ -36,8 +37,35 @@
 
     > .Title {
         font-weight: bold;
+        font-size: 20px;
         color:white;
+        margin-top:10px;
+        margin-left:15px;
+    }
+
+    > .MenueName {
+       color:white;
+       margin-left:15px;
+    }
+
+    > .MenuePreis {
+        color: var(--greenColor);
+        font-size: 20px;
+        font-weight: bold;
         margin-top:5px;
+        margin-left:540px;
+    }
+
+    > .SterneContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 20px;
+        width:100%;
+
+        > div > img {
+            max-height: 40px;
+            margin-right:2px;
+        }
     }
 }
 
