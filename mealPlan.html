@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up</title>
+  <title>Essensplan-Das Beruflische bildungszentrum</title>
+  <link rel="icon" type="image/png" href="logo-dark.png">
   <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -25,10 +26,10 @@
   <!-- SIGNUP FORM -->
   <div class="flex items-center justify-center min-h-screen -mt-20">
     <form class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
-      <h2 class="text-3xl font-bold text-center mb-6">Neues Gericht</h2>
+      <h2 class="text-3xl font-bold text-center mb-6">Essensplan</h2>
 
-      <label class="block mb-2 font-semibold">Name</label>
-      <input type="text" class="w-full rounded-lg p-3 mb-4" placeholder="John Doe">
+      <label class="block mb-2 font-semibold">Date</label>
+      <input type="date" class="w-full rounded-lg p-3 mb-4" placeholder="31.12.2025">
 
       <label class="block mb-2 font-semibold">Typ</label>
         <select class="w-full border text-gray-400 rounded-lg p-3 mb-4">
@@ -45,12 +46,22 @@
         <option value="option2">Option Two</option>
         <option value="option3">Option Three</option>
         </select>
-
-      <label class="block mb-2 font-semibold">Price</label>
-      <input type="number" class="w-full border rounded-lg p-3 mb-4" placeholder="0,00">
-
-      <label class="block mb-2 font-semibold">Beschreibung</label>
-      <textarea type="text" class="w-full border rounded-lg p-3 mb-4" placeholder="zusätzlich information" maxlength="250" rows="4"></textarea>
+        
+      <label class="block mb-2 font-semibold">Allergene</label>
+        <select class="w-full border text-gray-400 rounded-lg p-3 mb-4">
+        <option value="" disabled selected class="text-gray-400">Select type</option>
+        <option value="option1">Option One</option>
+        <option value="option2">Option Two</option>
+        <option value="option3">Option Three</option>
+        </select>
+        
+      <label class="block mb-2 font-semibold">Allergene</label>
+        <select class="w-full border text-gray-400 rounded-lg p-3 mb-4">
+        <option value="" disabled selected class="text-gray-400">Select type</option>
+        <option value="option1">Option One</option>
+        <option value="option2">Option Two</option>
+        <option value="option3">Option Three</option>
+        </select>
 
       <button class="w-full PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
         Save
