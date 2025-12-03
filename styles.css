@@ -51,7 +51,8 @@
     > .MenuePreis {
         color: var(--greenColor);
         font-weight: bold;
-        margin-left:603px;
+        margin-top:5px;
+        margin-left:583px;
     }
 }
 
