@@ -57,6 +57,8 @@
     }
 
     > .SterneContainer {
+        display: flex;
+        flex-wrap: nowrap;
         margin-top: 20px;
         width:100%;
 
