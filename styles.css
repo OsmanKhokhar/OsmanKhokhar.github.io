@@ -19,10 +19,10 @@
     display: flex;
     flex-wrap: wrap;
     width: 618px;
-    min-height: 700px;
     margin-left: auto;
     margin-right: auto;
-    gap:5px;
+    margin-bottom: 24px;
+    gap:10px;
 }
 
 /* Zwei untereinander */
@@ -44,9 +44,39 @@
 }
 
 .ZusatzBox.links {
-    margin-right:0px;
+    margin-right:auto;
+    margin-left: 0px;
 }
 
 .ZusatzBox.rechts {
-    margin-left:0px;
+    margin-left:auto;
+    margin-right: 0px;
+}
+
+.UntereNavigation {
+    width: 618px;
+    height: 48px;
+    background-color: var(--grayColor);
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    color:var(--pinkColor);
+
+    a {
+        color:var(--pinkColor);
+        text-decoration: none;    
+    }
+
+    > .Current {
+        color:white;
+    }
+
+    div {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
