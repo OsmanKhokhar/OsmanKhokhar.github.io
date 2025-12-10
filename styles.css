@@ -73,14 +73,6 @@
         }
     }
 
-    > .Info {
-        margin-left: 550px;
-        margin-bottom: 20px;
-        > img {
-            max-height: 15px;
-            margin-right:5px;
-        }
-    }
 }
 
 /* Zwei nebeneinander */
