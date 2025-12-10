@@ -41,6 +41,11 @@
         color:white;
         margin-top:10px;
         margin-left:15px;
+
+        > div.Info {
+            max-height: 30px;
+            margin-left:5px;
+        }
     }
 
     > .MenueName {
@@ -66,10 +71,6 @@
         > div > img {
             max-height: 30px;
             margin-right:5px;
-        }
-
-        > div.Info {
-            margin-left: 550px;
         }
     }
 
