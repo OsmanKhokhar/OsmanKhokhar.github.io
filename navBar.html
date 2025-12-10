@@ -1,17 +1,41 @@
 <nav class="bg-black shadow p-4">
-  <div class="max-w-8xl mx-auto flex justify-between items-center">
-    <a href="index.html" >
+  <div class="max-w-9xl mx-auto flex justify-between items-center">
+
+    <!-- Logo -->
+    <a href="index.html">
       <img src="logo-dark.png" alt="Mensa App Logo" class="h-12">
     </a>
-<!--<h1 class="text-2xl text-white flex-1 text-center">Mensa App</h1> -->
-     
 
-    <div class="space-x-0">
+    <!-- Hamburger Button (mobile only) -->
+    <button id="menu-btn" class="md:hidden text-white text-3xl focus:outline-none">
+      ☰
+    </button>
+
+    <!-- Menu Items -->
+    <div id="menu" class="hidden md:flex space-x-4">
       <a href="index.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">Home</a> 
-      <a href="signUp.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">Registrieren</a>
-      <a href="login.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">login</a>
       <a href="newMeal.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">Neues Gericht</a>
-      <a href="mealPlan.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">Essensplan</a>
+      <a href="mealPlan.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">Neues Essensplan</a>
+      <a href="signUp.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800">Registrieren</a>
+      <a href="login.html" class="bg-pink-600 px-4 py-2 rounded-lg hover:bg-pink-800">Login</a>
     </div>
   </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="md:hidden hidden flex-col space-y-2 mt-4">
+    <a href="index.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800 block">Home</a> 
+    <a href="newMeal.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800 block">Neues Gericht</a>
+    <a href="mealPlan.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800 block">Neues Essensplan</a>
+    <a href="signUp.html" class="text-white px-4 py-2 rounded-lg hover:bg-pink-800 block">Registrieren</a>
+    <a href="login.html" class="bg-pink-600 px-4 py-2 rounded-lg hover:bg-pink-800 block">Login</a>
+  </div>
 </nav>
+
+<script>
+  const btn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  btn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
