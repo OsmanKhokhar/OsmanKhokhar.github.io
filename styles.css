@@ -71,6 +71,11 @@
 
     > .Info {
         margin-left: 540px;
+
+        > img {
+            max-height: 30px;
+            margin-right:5px;
+        }
     }
 }
 
