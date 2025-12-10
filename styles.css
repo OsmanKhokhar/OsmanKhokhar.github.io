@@ -71,9 +71,9 @@
 
     > .Info {
         margin-left: 540px;
-
+        margin-bottom: 10px;
         > img {
-            max-height: 30px;
+            max-height: 15px;
             margin-right:5px;
         }
     }
