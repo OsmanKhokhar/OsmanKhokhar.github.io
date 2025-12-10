@@ -67,6 +67,10 @@
             max-height: 30px;
             margin-right:5px;
         }
+
+        > div.Info {
+            margin-left: 550px;
+        }
     }
 
     > .Info {
