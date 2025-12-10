@@ -68,6 +68,10 @@
             margin-right:5px;
         }
     }
+
+    > .Info {
+        margin-left: 540px;
+    }
 }
 
 /* Zwei nebeneinander */
