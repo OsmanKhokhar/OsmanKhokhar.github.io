@@ -42,7 +42,7 @@
         margin-top:10px;
         margin-left:15px;
 
-        > div.Info {
+        > div > img {
             max-height: 30px;
             margin-left:5px;
         }
