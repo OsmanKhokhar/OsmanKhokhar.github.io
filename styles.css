@@ -36,6 +36,9 @@
     margin-right: auto;
 
     > .Title {
+        display:flex;
+        flex-wrap: nowrap;
+        width:100%;
         font-weight: bold;
         font-size: 20px;
         color:white;
