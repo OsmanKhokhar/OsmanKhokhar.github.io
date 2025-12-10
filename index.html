@@ -9,20 +9,13 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
+  <script src="/modules/components/Navigation.js" type="module" defer></script>
 </head>
 
 <body class="bg-black text-white">
 
   <!-- NAVBAR -->
- <div id="navbar"></div>
-
-<script>
-  fetch("navBar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-    });
-</script>
+  <wita-navigation></wita-navigation>
 
   <!-- HERO SECTION
   <section class="text-center py-20 bg-gradient-to-r from-pink-700 to-pink-500 text-white">
@@ -112,7 +105,7 @@
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-white py-6 text-center">
-    <p>© 2025 MyWebsite. All rights reserved.</p>
+    <p>&copy; 2025 MyWebsite. All rights reserved.</p>
   </footer>
 
 </body>
