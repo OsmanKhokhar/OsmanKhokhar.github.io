@@ -3,45 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SignUp-Das Beruflische bildungszentrum</title>
+  <title>SignUp - Das Berufliche Bildungszentrum</title>
   <link rel="icon" type="image/png" href="logo-dark.png">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-white min-h-screen flex flex-col">
 
-  <!-- NAVBAR INCLUDE -->
+  <!-- NAVBAR -->
   <div id="navbar"></div>
 
-  <script>
-    fetch("navBar.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-      });
-  </script>
-  <!-- END NAVBAR INCLUDE -->
-
   <!-- SIGNUP FORM -->
-  <div class="flex justify-center pt-10 pb-20 ">
-    <form class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
+  <div class="flex justify-center pt-10 pb-20">
+    <form id="signupForm"
+      class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10"
+      novalidate>
+
       <h2 class="text-3xl font-bold text-center mb-6">Registrieren</h2>
 
-      <label class="block mb-2 font-semibold">Full Name</label>
-      <input type="text" class="w-full border rounded-lg p-3 mb-4" placeholder="John Doe">
+      <!-- FIRST NAME -->
+      <label class="block mb-2 font-semibold">First Name</label>
+      <input id="first_name" type="text"
+        class="w-full border rounded-lg p-3 mb-1 text-gray-400">
+      <p id="firstNameError" class="text-red-500 text-sm mb-4" placeholder="Enter your first name"></p>
 
-      <label class="block mb-2 font-semibold">Email</label>
-      <input type="email" class="w-full border rounded-lg p-3 mb-4" placeholder="example@mail.com">
+      <!-- LAST NAME -->
+      <label class="block mb-2 font-semibold">Last Name</label>
+      <input id="last_name" type="text"
+        class="w-full border rounded-lg p-3 mb-1 text-gray-400 ">
+      <p id="lastNameError" class="text-red-500 text-sm mb-4"></p>
 
+      <!-- USERNAME -->
+      <label class="block mb-2 font-semibold">Username</label>
+      <input id="username" type="text"
+        class="w-full border rounded-lg p-3 mb-1 text-gray-400">
+      <p id="usernameError" class="text-red-500 text-sm mb-4"></p>
+
+      <!-- PASSWORD -->
       <label class="block mb-2 font-semibold">Password</label>
-      <input type="password" class="w-full border rounded-lg p-3 mb-4" placeholder="********">
+      <input id="password" type="password"
+        class="w-full border rounded-lg p-3 mb-1 text-gray-400">
+      <p id="passwordError" class="text-red-500 text-sm mb-4"></p>
 
-      <button class="w-full PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
+      <!-- CONFIRM PASSWORD -->
+      <label class="block mb-2 font-semibold">Confirm Password</label>
+      <input id="confirmPassword" type="password"
+        class="w-full border rounded-lg p-3 mb-1 text-gray-400">
+      <p id="confirmPasswordError" class="text-red-500 text-sm mb-4"></p>
+
+      <button type="submit"
+        class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
         Sign Up
       </button>
+
     </form>
   </div>
+
+  <!-- FOOTER -->
+  <div id="footer" class="mt-auto"></div>
+
+  <!-- LAYOUT SCRIPT -->
+  <script src="layout.js"></script>
+  <!-- JavaScript -->
+  <script src="signUpValidation.js"></script>
 
 </body>
 </html>

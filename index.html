@@ -11,26 +11,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bg-black text-white">
+<body class="bg-black text-white min-h-screen flex flex-col">
 
   <!-- NAVBAR -->
  <div id="navbar"></div>
 
-<script>
-  fetch("navBar.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-    });
-
-  
-  
-  document.addEventListener("keydown", function (event) {
-    if (event.key.toLowerCase() === "r") {
-      window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
-    }
-  });
-</script>
 
  <!-- Heutiges Menü -->
 <section class="center">
@@ -108,9 +93,10 @@
   </section> -->
 
   <!-- FOOTER -->
-  <footer class="bg-gray-900 text-white py-6 text-center">
-    <p>© 2025 MyWebsite. All rights reserved.</p>
-  </footer>
+  <div id="footer" class="mt-auto"></div>
+
+  <!-- LAYOUT SCRIPT -->
+  <script src="layout.js"></script>
 
 </body>
 </html>

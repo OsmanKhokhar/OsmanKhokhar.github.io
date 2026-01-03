@@ -125,4 +125,7 @@
         margin-right: 10px;
         margin-left: 10px;
     }
+    footer { 
+        margin-top: auto;
+    }
 }
