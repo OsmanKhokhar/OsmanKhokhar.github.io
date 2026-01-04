@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- 1️⃣ Set hidden date ----------
@@ -10,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- 2️⃣ Dynamic Meal Options ----------
   const mealOptions = {
-    "FleischhaltigesGericht": ["Steak", "Chicken", "Pork"],
-    "Vegetarisches Gericht": ["Veggie Burger", "Pasta", "Curry"],
-    "Saladbar": ["Greek Salad", "Caesar Salad", "Coleslaw"],
+    "FleischhaltigesGericht": ["Steak", "Chicken", "Pork", "Chicken Burger", "Chicken Curry", "Chicken Kebab"],
+    "Vegetarisches Gericht": ["Veggie Burger", "Pasta", "Curry","Veggie Pizza", "Veggie flafal"],
+    "Saladbar": ["Greek Salad", "Caesar Salad", "Coleslaw", "Chicken Salad", "Fruit Salad"],
     "Desert": ["Cake", "Ice Cream", "Fruit"]
   };
 
