@@ -20,19 +20,20 @@
     <form class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
       <h2 class="text-3xl font-bold text-center mb-6">Neues Gericht</h2>
 
-      <label class="block mb-2 font-semibold">Name</label>
-      <input type="text" class="w-full rounded-lg text-gray-400 p-3 mb-4" placeholder="John Doe">
-
       <label class="block mb-2 font-semibold">Typ</label>
-        <select class="w-full border text-gray-400 rounded-lg p-3 mb-4">
+        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
         <option value="" disabled selected class="text-gray-400">Select type</option>
-        <option value="option1">Option One</option>
-        <option value="option2">Option Two</option>
-        <option value="option3">Option Three</option>
+        <option value="option1">FleischhaltigesGericht</option>
+        <option value="option2">Vegetarisches Gericht</option>
+        <option value="option3">Saladbar</option>
+        <option value="option4">Desert</option>
         </select>
 
+      <label class="block mb-2 font-semibold">Gericht</label>
+        <input type="text" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Gericht Name">
+
       <label class="block mb-2 font-semibold">Allergene</label>
-        <select class="w-full border text-gray-400 rounded-lg p-3 mb-4">
+        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
         <option value="" disabled selected class="text-gray-400">Select type</option>
         <option value="option1">Option One</option>
         <option value="option2">Option Two</option>
@@ -40,10 +41,10 @@
         </select>
 
       <label class="block mb-2 font-semibold">Price</label>
-      <input type="number" class="w-full border text-gray-400 rounded-lg p-3 mb-4" placeholder="0,00">
+      <input type="number" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="0,00">
 
       <label class="block mb-2 font-semibold">Beschreibung</label>
-      <textarea type="text" class="w-full border text-gray-400 rounded-lg p-3 mb-4" placeholder="zusätzlich information" maxlength="250" rows="4"></textarea>
+      <textarea type="text" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="zusätzlich information" maxlength="250" rows="4"></textarea>
 
       <button class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
         Save

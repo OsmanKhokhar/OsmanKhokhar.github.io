@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bewertung - Das Beruflische Bildungszentrum</title>
+  <title>Allergien - Das Beruflische Bildungszentrum</title>
   <link rel="icon" type="image/png" href="../Bilder/logo-dark.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../Styling/styles.css">
@@ -15,39 +15,17 @@
   <div id="navbar"></div>
 
   <!-- PAGE CONTENT -->
-  <div class="flex justify-center pt-10 pb-20 ">
+  <div class="flex justify-center pt-10 pb-20">
     <form id="ratingForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
 
-      <h2 class="text-3xl font-bold text-center mb-6">Bewertung</h2>
+      <h2 class="text-3xl font-bold text-center mb-6">Allegien hinzufügen</h2>
 
       <!-- Hidden Date -->
       <input type="hidden" id="date">
 
       <!-- Type -->
-      <label class="block mb-2 font-semibold">Typ</label>
-      <select id="type" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>FleischhaltigesGericht</option>
-        <option value="Vegetarisches Gericht">Vegetarisches Gericht</option>
-        <option value="Saladbar">Saladbar</option>
-        <option value="Desert">Desert</option>
-      </select>
-
-      <!-- Meal -->
-      <label class="block mb-2 font-semibold">Select Meal</label>
-      <select id="meal" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>Choose a meal</option>
-      </select>
-
-      <!-- Rating -->
-      <label class="block mb-2 font-semibold">Rating</label>
-      <select id="rating" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>Rating in stars</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+     <label class="block mb-2 font-semibold">Name</label>
+        <input type="text" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Allergy Name">
 
       <!-- Description -->
       <label class="block mb-2 font-semibold">Beschreibung</label>
