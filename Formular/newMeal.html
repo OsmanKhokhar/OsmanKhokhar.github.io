@@ -15,48 +15,54 @@
   <!-- NAVBAR INCLUDE -->
   <div id="navbar"></div>
 
-  <!-- SIGNUP FORM -->
+  <!--FORM -->
   <div class="flex justify-center pt-10 pb-20 ">
-    <form class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
-      <h2 class="text-3xl font-bold text-center mb-6">Neues Gericht</h2>
+    <form id="mealForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
 
-      <label class="block mb-2 font-semibold">Typ</label>
-        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected class="text-gray-400">Select type</option>
-        <option value="option1">FleischhaltigesGericht</option>
-        <option value="option2">Vegetarisches Gericht</option>
-        <option value="option3">Saladbar</option>
-        <option value="option4">Desert</option>
-        </select>
+  <h2 class="text-3xl font-bold text-center mb-6">Neues Gericht</h2>
 
-      <label class="block mb-2 font-semibold">Gericht</label>
-        <input type="text" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Gericht Name">
+  <label class="block mb-2 font-semibold">Typ</label>
+  <select id="type" class="w-full border text-gray-800 rounded-lg p-3">
+    <option value="" disabled selected>Select type</option>
+    <option value="FleischhaltigesGericht">Fleischhaltiges Gericht</option>
+    <option value="VegetarischesGericht">Vegetarisches Gericht</option>
+    <option value="Saladbar">Saladbar</option>
+    <option value="Desert">Desert</option>
+  </select>
+  <p id="typeError" class="text-red-500 text-sm mb-4"></p>
 
-      <label class="block mb-2 font-semibold">Allergene</label>
-        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected class="text-gray-400">Select type</option>
-        <option value="option1">Option One</option>
-        <option value="option2">Option Two</option>
-        <option value="option3">Option Three</option>
-        </select>
+  <label class="block mb-2 font-semibold">Gericht</label>
+  <input type="text" id="mealName" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Gericht Name">
+  <p id="mealNameError" class="text-red-500 text-sm mb-4"></p>
 
-      <label class="block mb-2 font-semibold">Price</label>
-      <input type="number" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="0,00">
+  <label class="block mb-2 font-semibold">Allergene</label>
+  <select id="allergens" class="w-full border text-gray-800 rounded-lg p-3">
+    <option value="" disabled selected>Select allergens</option>
+  </select>
+  <p id="allergensError" class="text-red-500 text-sm mb-4"></p>
 
-      <label class="block mb-2 font-semibold">Beschreibung</label>
-      <textarea type="text" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="zusätzlich information" maxlength="250" rows="4"></textarea>
+  <label class="block mb-2 font-semibold">Price</label>
+  <input type="number" id="price" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="0,00">
+  <p id="priceError" class="text-red-500 text-sm mb-4"></p>
 
-      <button class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
-        Save
-      </button>
-    </form>
+  <label class="block mb-2 font-semibold">Beschreibung</label>
+  <textarea id="description" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Zusätzliche Information" maxlength="250" rows="4"></textarea>
+  <p id="descriptionError" class="text-red-500 text-sm mb-4"></p>
+
+  <button type="submit" class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
+    Save
+  </button>
+</form>
+
   </div>
 
   <!-- FOOTER -->
   <div id="footer" class="mt-auto"></div>
-
   <!-- LAYOUT SCRIPT -->
-  <script src="../Layout/layout.js"></script>
+  <script src="/MENSAAPP/JavaScript/navControl.js" defer></script>
+  <script src="/MENSAAPP/Layout/layout.js"></script>
+  <script src="/MENSAAPP/JavaScript/newMeal.js"></script>
+  
 
 </body>
 </html>

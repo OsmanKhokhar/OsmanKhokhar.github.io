@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Allergien - Das Beruflische Bildungszentrum</title>
-  <link rel="icon" type="image/png" href="../Bilder/logo-dark.png">
+  <link rel="icon" type="image/png" href="/MENSAAPP/Bilder/logo-dark.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../Styling/styles.css">
+  <link rel="stylesheet" href="/MENSAAPP/Styling/styles.css">
 </head>
 
 <body class="bg-black text-white min-h-screen flex flex-col">
@@ -16,33 +16,48 @@
 
   <!-- PAGE CONTENT -->
   <div class="flex justify-center pt-10 pb-20">
-    <form id="ratingForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
+    <form id="allergyForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
 
-      <h2 class="text-3xl font-bold text-center mb-6">Allegien hinzufügen</h2>
+  <h2 class="text-3xl font-bold text-center mb-6">Allergien hinzufügen</h2>
 
-      <!-- Hidden Date -->
-      <input type="hidden" id="date">
+  <!-- Name -->
+  <label class="block mb-2 font-semibold">Name</label>
+  <input
+    type="text"
+    id="allergyName"
+    class="w-full border text-gray-800 rounded-lg p-3"
+    placeholder="Allergy Name"
+  >
+  <p id="nameError" class="text-red-500 text-sm mb-4"></p>
 
-      <!-- Type -->
-     <label class="block mb-2 font-semibold">Name</label>
-        <input type="text" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Allergy Name">
+  <!-- Description -->
+  <label class="block mb-2 font-semibold">Beschreibung</label>
+  <textarea
+    id="description"
+    class="w-full border text-gray-800 rounded-lg p-3"
+    placeholder="Zusätzliche Information (optional)"
+    maxlength="250"
+    rows="4"
+  ></textarea>
+  <p id="descriptionError" class="text-red-500 text-sm mb-4"></p>
 
-      <!-- Description -->
-      <label class="block mb-2 font-semibold">Beschreibung</label>
-      <textarea id="description" class="w-full border text-gray-800 rounded-lg p-3 mb-4" placeholder="Zusätzliche Information (optional)" maxlength="250" rows="4"></textarea>
+  <button
+    type="submit"
+    class="w-full mt-6 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800"
+  >
+    Save
+  </button>
+</form>
 
-      <!-- Save Button -->
-      <button type="submit" class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
-        Save
-      </button>
-    </form>
+
   </div>
 
   <!-- FOOTER -->
   <div id="footer" class="mt-auto"></div>
 
   <!-- LAYOUT SCRIPT -->
+   <script src="/MENSAAPP/JavaScript/navControl.js" defer></script>
   <script src="/MENSAAPP/Layout/layout.js"></script>
-  <script src="/MENSAAPP/JavaScript/bewertung.js"></script>
+  <script src="/MENSAAPP/JavaScript/allergien.js"></script>
 </body>
 </html>

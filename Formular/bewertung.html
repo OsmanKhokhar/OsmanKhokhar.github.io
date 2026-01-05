@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bewertung - Das Beruflische Bildungszentrum</title>
-  <link rel="icon" type="image/png" href="../Bilder/logo-dark.png">
+  <link rel="icon" type="image/png" href="/MENSAAPP/Bilder/logo-dark.png">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="../Styling/styles.css">
+  <link rel="stylesheet" href="/MENSAAPP/Styling/styles.css">
 </head>
 
 <body class="bg-black text-white min-h-screen flex flex-col">
@@ -26,7 +26,8 @@
       <!-- Type -->
       <label class="block mb-2 font-semibold">Typ</label>
       <select id="type" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>FleischhaltigesGericht</option>
+        <option value="" disabled selected class="text-gray-400">Select type</option>
+        <option value="FleischhaltigesGericht">FleischhaltigesGericht</option>
         <option value="Vegetarisches Gericht">Vegetarisches Gericht</option>
         <option value="Saladbar">Saladbar</option>
         <option value="Desert">Desert</option>
@@ -64,6 +65,7 @@
   <div id="footer" class="mt-auto"></div>
 
   <!-- LAYOUT SCRIPT -->
+   <script src="/MENSAAPP/JavaScript/navControl.js" defer></script>
   <script src="/MENSAAPP/Layout/layout.js"></script>
   <script src="/MENSAAPP/JavaScript/bewertung.js"></script>
 </body>

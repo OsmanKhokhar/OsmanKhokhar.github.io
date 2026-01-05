@@ -126,6 +126,7 @@ form.addEventListener("submit", function (e) {
     isPasswordValid &&
     isConfirmValid
   ) {
+     // 🔜 API call will go here later
     alert("Registration successful!");
     form.reset();
   }
