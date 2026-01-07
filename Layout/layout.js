@@ -14,11 +14,11 @@ fetch("/MENSAAPP/Layout/navBar.html")
   });
 
 // FUN EASTER EGG 😄
-document.addEventListener("keydown", function (event) {
+/*document.addEventListener("keydown", function (event) {
   if (event.key.toLowerCase() === "r") {
     window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
   }
-});
+});*/
 
 // LOAD FOOTER
 fetch("/MENSAAPP/Layout/footer.html")
