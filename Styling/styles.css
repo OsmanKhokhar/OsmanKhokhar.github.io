@@ -91,6 +91,52 @@
     height: 232px;
     background-color: var(--grayColor);
     border-radius: 10px;
+
+    > .Title {
+        display:flex;
+        flex-wrap: nowrap;
+        font-weight: bold;
+        font-size: 20px;
+        color:white;
+        margin-top:10px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-left:15px;
+
+        > div > img {
+            max-height: 20px;
+            margin-left:5px;
+            margin-top:5px;
+            margin-bottom: auto;
+        }
+    }
+
+    > .MenueName {
+       color:white;
+       margin-left:15px;
+    }
+
+    > .MenuePreis {
+        color: var(--greenColor);
+        font-size: 20px;
+        font-weight: bold;
+        margin-top:5px;
+        margin-left:15px;
+    }
+
+    > .SterneContainer {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 20px;
+        margin-left: 13px;;
+        width:100%;
+
+        > div > img {
+            max-height: 30px;
+            margin-right:5px;
+        }
+    }
+
 }
 
 .ZusatzBox.links {
