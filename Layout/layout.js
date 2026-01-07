@@ -1,5 +1,5 @@
 // LOAD NAVBAR
-fetch("/Layout/navBar.html")
+fetch("Layout/navBar.html")
   .then(response => response.text())
   .then(data => {
     const navbar = document.getElementById("navbar");
@@ -21,7 +21,7 @@ fetch("/Layout/navBar.html")
 });*/
 
 // LOAD FOOTER
-fetch("/Layout/footer.html")
+fetch("Layout/footer.html")
   .then(response => response.text())
   .then(data => {
     const footer = document.getElementById("footer");
