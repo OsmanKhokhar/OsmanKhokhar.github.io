@@ -1,75 +1,88 @@
+// =================== NAVBAR ===================
 window.initNavbar = function () {
   const user = JSON.parse(localStorage.getItem("user"));
 
-  // Get both desktop and mobile menus
-  const menus = [document.getElementById("menu"), document.getElementById("mobile-menu")];
+  const menus = [
+    document.getElementById("menu"),
+    document.getElementById("mobile-menu")
+  ];
 
   menus.forEach(menu => {
     if (!menu) return;
 
-    const allMenuItems = menu.querySelectorAll("a");
+    const links = menu.querySelectorAll("a");
+    const logoutLink = menu.querySelector(".logout-link");
 
-    allMenuItems.forEach(item => {
-      const text = item.textContent.trim();
+    // ---------- RESET ----------
+    links.forEach(link => {
+      link.style.display = "none";
+    });
 
-      // Reset everything first
-      item.style.display = "block";
-
-      if (user) {
-        // ---------------- Admin ----------------
-        if (user.role === "admin") {
-          item.style.display = "block"; // show everything
+    // ---------- NOT LOGGED IN ----------
+    if (!user) {
+      links.forEach(link => {
+        if (["Home", "Login", "Registrieren"].includes(link.textContent.trim())) {
+          link.style.display = "block";
         }
-        // ---------------- User ----------------
-        else if (user.role === "user") {
-          // Hide restricted items for user
-          if (["Neues Gericht", "Allergien", "Neues Essensplan"].includes(text)) {
-            item.style.display = "none";
-          } else {
-            item.style.display = "block";
-          }
-        }
+      });
 
-        // Replace Login/Registrieren with Logout ONLY ONCE per menu
-        if (text === "Login" || text === "Registrieren") {
-          item.textContent = "Logout";
-          item.onclick = () => logout();
+      if (logoutLink) logoutLink.style.display = "none";
+      return;
+    }
+
+    // ---------- LOGGED IN ----------
+    links.forEach(link => {
+      const text = link.textContent.trim();
+
+      // ADMIN sees everything except login/register
+      if (user.role === "admin") {
+        if (!["Login", "Registrieren"].includes(text)) {
+          link.style.display = "block";
         }
       }
-      // ---------------- Not logged in ----------------
-      else {
-        if (text === "Home" || text === "Login" || text === "Registrieren") {
-          item.style.display = "block";
-          if (text === "Login") item.onclick = () => loginUser();
-        } else {
-          item.style.display = "none";
+
+      // USER sees limited menu
+      if (user.role === "user") {
+        if (["Home", "Bewertung", "Logout"].includes(text)) {
+          link.style.display = "block";
         }
       }
     });
+
+    // ---------- LOGOUT ----------
+    if (logoutLink) {
+      logoutLink.style.display = "block";
+      logoutLink.onclick = (e) => {
+        e.preventDefault();
+        logout();
+      };
+    }
   });
 
-  // ---------------- Hamburger Menu Toggle ----------------
+  // ---------- HAMBURGER ----------
   const btn = document.getElementById("menu-btn");
   const mobileMenu = document.getElementById("mobile-menu");
+
   if (btn && mobileMenu) {
-    btn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
-    });
+    btn.onclick = () => mobileMenu.classList.toggle("hidden");
   }
 };
 
-// ------------------- LOGIN / LOGOUT -------------------
+// =================== MOCK AUTH ===================
 window.loginAdmin = function () {
-  localStorage.setItem("user", JSON.stringify({ username: "adminMock", role: "admin" }));
-  initNavbar(); // refresh menu dynamically
+  localStorage.setItem("user", JSON.stringify({ role: "admin" }));
+  initNavbar();
 };
 
 window.loginUser = function () {
-  localStorage.setItem("user", JSON.stringify({ username: "userMock", role: "user" }));
-  initNavbar(); // refresh menu dynamically
+  localStorage.setItem("user", JSON.stringify({ role: "user" }));
+  initNavbar();
 };
 
 window.logout = function () {
   localStorage.removeItem("user");
-  initNavbar(); // refresh menu dynamically
+  initNavbar();
 };
+
+// =================== INIT ===================
+document.addEventListener("DOMContentLoaded", initNavbar);
