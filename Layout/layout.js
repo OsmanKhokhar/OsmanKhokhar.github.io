@@ -1,5 +1,5 @@
 // LOAD NAVBAR
-fetch("/MENSAAPP/Layout/navBar.html")
+fetch("navBar.html")
   .then(response => response.text())
   .then(data => {
     const navbar = document.getElementById("navbar");
@@ -21,7 +21,7 @@ document.addEventListener("keydown", function (event) {
 });
 
 // LOAD FOOTER
-fetch("/MENSAAPP/Layout/footer.html")
+fetch("footer.html")
   .then(response => response.text())
   .then(data => {
     const footer = document.getElementById("footer");
