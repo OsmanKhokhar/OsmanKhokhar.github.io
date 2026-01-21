@@ -13,9 +13,9 @@ fetch("\\Layout/navBar.html")
     }
   });
 
-// FUN EASTER EGG 😄
+// Der Rick
 document.addEventListener("keydown", function (event) {
-  if (!event.ctrlKey && event.key.toLowerCase() === "r") {
+  if (!event.metaKey && event.key.toLowerCase() === "r") {
     window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
   }
 });
