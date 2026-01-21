@@ -54,7 +54,7 @@ window.initNavbar = function () {
       logoutLink.style.display = "block";
       logoutLink.onclick = (e) => {
         e.preventDefault();
-        logout();
+        logout(); // <--- This already logs out & calls initNavbar()
       };
     }
   });
