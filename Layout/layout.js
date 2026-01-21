@@ -15,8 +15,15 @@ fetch("\\Layout/navBar.html")
 
 // Der Rick
 document.addEventListener("keydown", function (event) {
-  if (!event.metaKey && event.key.toLowerCase() === "r") {
-    window.location.href = "https://www.youtube.com/watch?v=xvFZjo5PgG0";
+  if (
+    event.key === "r" &&
+    !event.metaKey &&
+    !event.ctrlKey &&
+    !event.altKey &&
+    !event.shiftKey
+  ) {
+    event.preventDefault(); // helps on Safari
+    window.location.assign("https://www.youtube.com/watch?v=xvFZjo5PgG0");
   }
 });
 
