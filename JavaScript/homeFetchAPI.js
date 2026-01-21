@@ -1,39 +1,66 @@
 
-/* AUTH */
 
-const url = new URL(
-    "https://mensa-app.test/api/v1/auth"
-);
+/* DATE */
 
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
+const date = new Date();
 
-let body = {
-    "username": "admin",
-    "password": ""
-};
+/*Check if date is weekend, if so set to next Monday*/
+if (date.getDay() === 6) {
+  date.setDate(date.getDate() + 2); 
+} else if (date.getDay() === 0) {
+  date.setDate(date.getDate() + 1); 
+}
 
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response => response.json());
+function getDayOfWeek(date) {
+  const weekday = new Date(date).getDay();    
+  return isNaN(weekday) ? null : 
+    ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'][weekday];
+}
 
+/* INITIALIZE DATE DISPLAY */
 
-/* URL COOKIE */
+document.getElementById("tag").textContent = getDayOfWeek(date);
+document.getElementById("datum").textContent = date.toLocaleDateString('en-GB');
 
-const url = new URL(
-    "https://mensa-app.test/sanctum/csrf-cookie"
-);
+/* Set initial active link styling */
+document.querySelectorAll('.UntereNavigation a').forEach(dayLink => {
+  if (dayLink.id === getDayOfWeek(date)) {
+    dayLink.classList.add('Current');
+  } else {
+    dayLink.classList.remove('Current');
+  }
+});
 
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
+/* WEEK FUNCTIONALITY */
 
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response => response.json());
+function changeDayOfWeek(offset) {
+  date.setDate(date.getDate() + offset);
+  document.getElementById("tag").textContent = getDayOfWeek(date);
+  document.getElementById("datum").textContent = date.toLocaleDateString('en-GB');
+  
+  /* Update active link styling */
+  document.querySelectorAll('.UntereNavigation a').forEach(dayLink => {
+    if (dayLink.id === getDayOfWeek(date)) {
+      dayLink.classList.add('Current');
+    } else {
+      dayLink.classList.remove('Current');
+    }
+  });
+}
+
+document.querySelectorAll('.UntereNavigation a').forEach(dayLink => {
+  dayLink.addEventListener('click', function() {
+    const selectedDay = this.id;   
+    const currentDay = getDayOfWeek(date);
+
+    const dayOffsets = {
+        'Montag': 1,
+        'Dienstag': 2,
+        'Mittwoch': 3,
+        'Donnerstag': 4,
+        'Freitag': 5
+    };
+    const offset = dayOffsets[selectedDay] - dayOffsets[currentDay];
+    changeDayOfWeek(offset);
+    });
+});
