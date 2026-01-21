@@ -179,3 +179,9 @@
         margin-top: auto;
     }
 }
+
+.WeekArrow {
+    /*display:block;*/
+    max-height: 30px;
+    margin-bottom: auto;
+}
