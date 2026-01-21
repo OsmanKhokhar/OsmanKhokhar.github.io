@@ -1,10 +1,10 @@
 const form = document.getElementById("allergyForm");
 
 const allergyName = document.getElementById("allergyName");
-const description = document.getElementById("description");
+const allergyId = document.getElementById("allergyId");
 
 const nameError = document.getElementById("nameError");
-const descriptionError = document.getElementById("descriptionError");
+const allergyError = document.getElementById("allergyError");
 
 
 // Letters + spaces only
@@ -44,18 +44,18 @@ function validateAllergyName() {
 }
 
 // --------------------
-// Description validation
+// Id validation
 // --------------------
-function validateDescription() {
-  const value = description.value.trim();
+function validateId() {
+  const value = allergyId.value.trim();
 
-  if (value.length > 250) {
-    descriptionError.textContent =
-      "Description must not exceed 250 characters.";
+  if (value.length > 5) {
+    idError.textContent =
+      "Id must not exceed 5 characters.";
     return false;
   }
 
-  descriptionError.textContent = "";
+  idError.textContent = "";
   return true;
 }
 
@@ -63,7 +63,7 @@ function validateDescription() {
 // Field-level validation (on blur)
 // --------------------
 allergyName.addEventListener("blur", validateAllergyName);
-description.addEventListener("blur", validateDescription);
+allergyId.addEventListener("blur", validateId);
 
 // --------------------
 // Submit validation
@@ -72,9 +72,9 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   const isNameValid = validateAllergyName();
-  const isDescriptionValid = validateDescription();
+  const isIdValid = validateDescription();
 
-  if (isNameValid && isDescriptionValid) {
+  if (isNameValid && isIdValid) {
     // 🔜 API call will go here later
     console.log("Allergy is valid, ready to submit");
     form.reset();
