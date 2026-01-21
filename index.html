@@ -18,8 +18,8 @@
 
  <!-- Heutiges Menü -->
 <section class="center">
-  <h3 class="text-3xl font-bold text-center PinkText">Mittwoch</h3>
-  <p class="text-center font-bold text-white mb-10">26.11.2025</p>
+  <h3 class="text-3xl font-bold text-center PinkText" id="tag">Mittwoch</h3>
+  <p class="text-center font-bold text-white mb-10" id="datum">26.11.2025</p>
   <div class="EssensAnzeigeContainer">
     <div class="HauptgerichteBox">
       <div class="Title">
@@ -31,11 +31,11 @@
       <div id="FleischName" class="MenueName">Platzerhalter für Name</div>
       <div id="FleischPreis" class="MenuePreis">0,00€</div>
       <div id="SterneContainer" class="SterneContainer">
-        <div id="sf1"><img src="Bilder/Stern.png"></div>
-        <div id="sf2"><img src="Bilder/Stern.png"></div>
-        <div id="sf3"><img src="Bilder/Stern.png"></div>
-        <div id="sf4"><img src="Bilder/Stern.png"></div>
-        <div id="sf5"><img src="Bilder/Stern.png"></div>
+        <div id="sf1"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sf2"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sf3"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sf4"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sf5"><img src="Bilder/Stern.png" alt="Stern"></div>
       </div>
     </div>
     <div class="HauptgerichteBox">
@@ -48,13 +48,15 @@
       <div id="VegetarischName" class="MenueName">Platzerhalter für Name</div>
       <div id="VegetarischPreis" class="MenuePreis">0,00€</div>
       <div id="SterneContainer2" class="SterneContainer">
-        <div id="sv1"><img src="Bilder/Stern.png"></div>
-        <div id="sv2"><img src="Bilder/Stern.png"></div>
-        <div id="sv3"><img src="Bilder/Stern.png"></div>
-        <div id="sv4"><img src="Bilder/Stern.png"></div>
-        <div id="sv5"><img src="Bilder/Stern.png"></div>
+        <div id="sv1"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sv2"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sv3"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sv4"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sv5"><img src="Bilder/Stern.png" alt="Stern"></div>
       </div>
-      <div class="WeekArrow right"><img src="Bilder/PfeilRechts.png"></div>
+      <div class="WeekArrow">
+        <img src="Bilder/PfeilRechts.png">
+      </div>
 
     </div>
     <div class="ZusatzBox links">
@@ -66,11 +68,11 @@
       </div>
       <div id="SalatbarName" class="MenueName">Platzerhalter für Name</div>
       <div id="SterneContainer3" class="SterneContainer">
-        <div id="ss1"><img src="Bilder/Stern.png"></div>
-        <div id="ss2"><img src="Bilder/Stern.png"></div>
-        <div id="ss3"><img src="Bilder/Stern.png"></div>
-        <div id="ss4"><img src="Bilder/Stern.png"></div>
-        <div id="ss5"><img src="Bilder/Stern.png"></div>
+        <div id="ss1"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="ss2"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="ss3"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="ss4"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="ss5"><img src="Bilder/Stern.png" alt="Stern"></div>
       </div>
       <div id="SalatbarPreis" class="MenuePreis">0,00€</div>
     </div>
@@ -83,21 +85,21 @@
       </div>
       <div id="DessertName" class="MenueName">Platzerhalter für Name</div>
       <div id="SterneContainer4" class="SterneContainer">
-        <div id="sd1"><img src="Bilder/Stern.png"></div>
-        <div id="sd2"><img src="Bilder/Stern.png"></div>
-        <div id="sd3"><img src="Bilder/Stern.png"></div>
-        <div id="sd4"><img src="Bilder/Stern.png"></div>
-        <div id="sd5"><img src="Bilder/Stern.png"></div>
+        <div id="sd1"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sd2"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sd3"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sd4"><img src="Bilder/Stern.png" alt="Stern"></div>
+        <div id="sd5"><img src="Bilder/Stern.png" alt="Stern"></div>
       </div>
       <div id="DessertPreis" class="MenuePreis">0,00€</div>
     </div>
 
     <div class="UntereNavigation">
-      <a href=''>MO</a>
-      <a href=''>DI</a>
-      <a href='' class='Current'>MI</a>
-      <a href=''>DO</a>
-      <a href=''>FR</a>
+      <a id="Montag">MO</a>
+      <a id="Dienstag">DI</a>
+      <a id="Mittwoch" class='Current'>MI</a>
+      <a id="Donnerstag">DO</a>
+      <a id="Freitag">FR</a>
     </div>
   </div>
 </section>
@@ -115,6 +117,6 @@
   <script src="\Layout/layout.js"></script>
 <!-- ✅ LOAD SCRIPT HERE -->
   <script src="\JavaScript/navControl.js" defer></script>
-
+  <script src="\JavaScript/homeFetchAPI.js" defer></script>
 </body>
 </html>
