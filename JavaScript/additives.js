@@ -1,10 +1,10 @@
-const form = document.getElementById("allergyForm");
+const form = document.getElementById("additiveForm");
 
-const allergyName = document.getElementById("allergyName");
-const allergyId = document.getElementById("allergyId");
+const additiveName = document.getElementById("additiveName");
+const additiveId = document.getElementById("additiveId");
 
 const nameError = document.getElementById("nameError");
-const allergyError = document.getElementById("allergyError");
+const additiveError = document.getElementById("idError");
 
 
 // Letters + spaces only
@@ -13,29 +13,29 @@ const namePattern = /^[A-Za-z\s]+$/;
 // --------------------
 // Allergy name validation
 // --------------------
-function validateAllergyName() {
-  const value = allergyName.value.trim();
+function validateAdditiveName() {
+  const value = additiveName.value.trim();
 
   if (value.length === 0) {
-    nameError.textContent = "Allergy name is required.";
+    nameError.textContent = "Additive name is required.";
     return false;
   }
 
   if (value.length < 3) {
     nameError.textContent =
-      "Allergy name must be at least 3 characters.";
+      "Additive name must be at least 3 characters.";
     return false;
   }
 
   if (value.length > 30) {
     nameError.textContent =
-      "Allergy name must not exceed 30 characters.";
+      "Additive name must not exceed 30 characters.";
     return false;
   }
 
   if (!namePattern.test(value)) {
     nameError.textContent =
-      "Allergy name can only contain letters and spaces.";
+      "Additive name can only contain letters and spaces.";
     return false;
   }
 
@@ -46,8 +46,8 @@ function validateAllergyName() {
 // --------------------
 // Id validation
 // --------------------
-function validateId() {
-  const value = allergyId.value.trim();
+function validateAdditiveId() {
+  const value = additiveId.value.trim();
 
   if (value.length > 5) {
     idError.textContent =
@@ -62,8 +62,8 @@ function validateId() {
 // --------------------
 // Field-level validation (on blur)
 // --------------------
-allergyName.addEventListener("blur", validateAllergyName);
-allergyId.addEventListener("blur", validateId);
+additiveName.addEventListener("blur", validateAdditiveName);
+additiveId.addEventListener("blur", validateAdditiveId);
 
 // --------------------
 // Submit validation
@@ -71,8 +71,8 @@ allergyId.addEventListener("blur", validateId);
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const isNameValid = validateAllergyName();
-  const isIdValid = validateId();
+  const isNameValid = validateAdditiveName();
+  const isIdValid = validateAdditiveId();
 
   if (isNameValid && isIdValid) {
     // 🔜 API call will go here later

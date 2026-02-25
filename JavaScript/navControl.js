@@ -11,7 +11,7 @@ window.initNavbar = function () {
     if (!menu) return;
 
     const links = menu.querySelectorAll("a");
-    const logoutLink = menu.querySelector(".logout-link");
+    const logoutLink = menu.querySelector(".Abmelden-link");
 
     // ---------- RESET ----------
     links.forEach(link => {
@@ -21,7 +21,7 @@ window.initNavbar = function () {
     // ---------- NOT LOGGED IN ----------
     if (!user) {
       links.forEach(link => {
-        if (["Home", "Login", "Registrieren"].includes(link.textContent.trim())) {
+        if (["Home", "Anmelden", "Registrieren"].includes(link.textContent.trim())) {
           link.style.display = "block";
         }
       });
@@ -36,14 +36,14 @@ window.initNavbar = function () {
 
       // ADMIN sees everything except login/register
       if (user.role === "admin") {
-        if (!["Login", "Registrieren"].includes(text)) {
+        if (!["Anmelden", "Registrieren"].includes(text)) {
           link.style.display = "block";
         }
       }
 
       // USER sees limited menu
       if (user.role === "user") {
-        if (["Home", "Bewertung", "Logout"].includes(text)) {
+        if (["Home", "Bewertung", "Abmelden"].includes(text)) {
           link.style.display = "block";
         }
       }

@@ -19,42 +19,32 @@
     <form class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
       <h2 class="text-3xl font-bold text-center mb-6">Essensplan</h2>
 
-      <label class="block mb-2 font-semibold">Date</label>
+      <label class="block mb-2 font-semibold">Datum</label>
       <input type="date" class="w-full rounded-lg p-3 mb-4 text-gray-400" placeholder="31.12.2025">
 
-      <label class="block mb-2 font-semibold">Typ</label>
-        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected class="text-gray-400">Select type</option>
-        <option value="option1">FleischhaltigesGericht</option>
-        <option value="option2">Vegetarisches Gericht</option>
-        <option value="option3">Saladbar</option>
-        <option value="option4">Desert</option>
+      <label class="block mb-2 font-semibold">Fleischhaltiges Gericht</label>
+        <select id="fleisch" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+        <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
         </select>
 
       <!-- Meal -->
-      <label class="block mb-2 font-semibold">Select Meal</label>
-      <select id="meal" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>Choose a meal</option>
+      <label class="block mb-2 font-semibold">Vegetarisches Gericht</label>
+      <select id="vegetarisch" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+        <option value="" disabled selected>Bitte auswählen</option>
       </select>
         
-      <label class="block mb-2 font-semibold">Saladbar</label>
-        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected class="text-gray-400">Select type</option>
-        <option value="option1">Option One</option>
-        <option value="option2">Option Two</option>
-        <option value="option3">Option Three</option>
+      <label class="block mb-2 font-semibold">Salatbar</label>
+        <select id="salat" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+        <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
         </select>
         
-      <label class="block mb-2 font-semibold">Desert</label>
-        <select class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected class="text-gray-400">Select type</option>
-        <option value="option1">Option One</option>
-        <option value="option2">Option Two</option>
-        <option value="option3">Option Three</option>
+      <label class="block mb-2 font-semibold">Nachtisch</label>
+        <select id="nachtisch" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+        <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
         </select>
 
       <button class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
-        Save
+        Speichern
       </button>
     </form>
   </div>
