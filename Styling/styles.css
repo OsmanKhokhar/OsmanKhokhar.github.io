@@ -161,6 +161,7 @@
     font-size: 30px;
     text-align: center;
     color:var(--pinkColor);
+    cursor: pointer;
 
     a {
         color:var(--pinkColor);
