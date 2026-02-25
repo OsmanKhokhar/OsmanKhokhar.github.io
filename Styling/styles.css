@@ -32,6 +32,7 @@
 
 /* Zwei untereinander */
 .HauptgerichteBox {
+    position: relative;
     width: 618px;
     height: 172px;
     background-color: var(--grayColor);
@@ -163,10 +164,6 @@
     color:var(--pinkColor);
     cursor: pointer;
 
-    a {
-        color:var(--pinkColor);
-        text-decoration: none;    
-    }
 
     > .Current {
         color:white;
@@ -181,8 +178,27 @@
     }
 }
 
-.WeekArrow {
-    /*display:block;*/
-    max-height: 30px;
-    margin-bottom: auto;
+
+.WeekArrow.right {
+    position: absolute;
+    right: -120px;
+    top: 10px;
+}
+
+.WeekArrow.left {
+    position: absolute;
+    left: -120px;
+    top: 10px;
+}
+
+.WeekArrow:hover {
+    cursor: pointer;
+}
+
+.WeekArrow:active {
+    transform: scale(0.95);
+}
+
+.WeekArrow img {
+    height: 150px;
 }

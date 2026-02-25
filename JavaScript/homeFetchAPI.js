@@ -64,3 +64,16 @@ document.querySelectorAll('.UntereNavigation span').forEach(dayLink => {
     changeDayOfWeek(offset);
     });
 });
+
+/* WEEK ARROW FUNCTIONALITY */
+
+document.querySelector('.WeekArrow.left').addEventListener('click', function() {
+  if (getDayOfWeek(date) === 'Montag') return;
+  changeDayOfWeek(-1);
+});
+
+document.querySelector('.WeekArrow.right').addEventListener('click', function() {
+  if (getDayOfWeek(date) === 'Freitag') return;
+  changeDayOfWeek(1);
+});
+
