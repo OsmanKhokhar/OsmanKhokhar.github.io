@@ -53,7 +53,7 @@ mockAdditive.forEach(a => {
   // --------------------
   function validateType() {
     if (!type.value) {
-      typeError.textContent = "Please select a meal type.";
+      typeError.textContent = "Bitte wählen Sie eine Mahlzeit aus";
       return false;
     }
     typeError.textContent = "";
@@ -63,15 +63,15 @@ mockAdditive.forEach(a => {
   function validateMealName() {
     const value = mealName.value.trim();
     if (!value) {
-      mealNameError.textContent = "Meal name is required.";
+      mealNameError.textContent = "Die Angabe des Gerichtsnamens ist erforderlich";
       return false;
     }
     if (value.length < 3) {
-      mealNameError.textContent = "Meal name must be at least 3 characters.";
+      mealNameError.textContent = "Der Name des Gerichts muss mindestens 3 Zeichen lang sein";
       return false;
     }
     if (!namePattern.test(value)) {
-      mealNameError.textContent = "Meal name can only contain letters and spaces.";
+      mealNameError.textContent = "Der Name der Mahlzeit darf nur Buchstaben und Leerzeichen enthalten";
       return false;
     }
     mealNameError.textContent = "";
@@ -80,7 +80,7 @@ mockAdditive.forEach(a => {
 
   function validateAllergens() {
     if (!allergens.value || allergens.value === "") {
-      allergensError.textContent = "Please select an allergen.";
+      allergensError.textContent = "Bitte wählen Sie ein Allergen aus";
       return false;
     }
     allergensError.textContent = "";
@@ -89,7 +89,7 @@ mockAdditive.forEach(a => {
 
     function validateAdditive() {
     if (!additive.value || additive.value === "") {
-      additiveError.textContent = "Please select an additive.";
+      additiveError.textContent = "Bitte wählen Sie einen Zusatzstoff aus";
       return false;
     }
     additiveError.textContent = "";
@@ -99,11 +99,11 @@ mockAdditive.forEach(a => {
   function validatePrice() {
     const value = parseFloat(price.value);
     if (isNaN(value)) {
-      priceError.textContent = "Price is required.";
+      priceError.textContent = "Ein Preis wird benötigt.";
       return false;
     }
     if (value <= 0) {
-      priceError.textContent = "Price must be greater than 0.";
+      priceError.textContent = "Der Preis muss größer als 0 sein";
       return false;
     }
     priceError.textContent = "";

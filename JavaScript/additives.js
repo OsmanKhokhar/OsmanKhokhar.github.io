@@ -17,25 +17,25 @@ function validateAdditiveName() {
   const value = additiveName.value.trim();
 
   if (value.length === 0) {
-    nameError.textContent = "Additive name is required.";
+    nameError.textContent = "Die Bezeichnung des Zusatzstoffs ist erforderlich";
     return false;
   }
 
   if (value.length < 3) {
     nameError.textContent =
-      "Additive name must be at least 3 characters.";
+      "Der Name des Zusatzstoffs muss mindestens 3 Zeichen lang sein";
     return false;
   }
 
   if (value.length > 30) {
     nameError.textContent =
-      "Additive name must not exceed 30 characters.";
+      "Der Name des Zusatzstoffs darf nicht mehr als 30 Zeichen lang sein";
     return false;
   }
 
   if (!namePattern.test(value)) {
     nameError.textContent =
-      "Additive name can only contain letters and spaces.";
+      "Der Zusatzname darf nur Buchstaben und Leerzeichen enthalten";
     return false;
   }
 
@@ -51,7 +51,7 @@ function validateAdditiveId() {
 
   if (value.length > 5) {
     idError.textContent =
-      "Id must not exceed 5 characters.";
+      "Die ID darf nicht mehr als 5 Zeichen lang sein";
     return false;
   }
 

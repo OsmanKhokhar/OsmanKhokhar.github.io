@@ -1,123 +1,146 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const form = document.getElementById("mealForm");
-  const type = document.getElementById("type");
-  const mealName = document.getElementById("mealName");
-  const allergens = document.getElementById("allergens");
-  const additive = document.getElementById("additive");
-  const price = document.getElementById("price");
+  const form = document.getElementById("mealPlanForm");
+  const date = document.getElementById("date");
+  const fleischhaltige = document.getElementById("fleischhaltige");
+  const vegetarisch = document.getElementById("vegetarisch");
+  const salat = document.getElementById("salat");
+  const nachtisch = document.getElementById("nachtisch");
 
-  const typeError = document.getElementById("typeError");
-  const mealNameError = document.getElementById("mealNameError");
-  const allergensError = document.getElementById("allergensError");
-  const additiveError = document.getElementById("additiveError");
-  const priceError = document.getElementById("priceError");
+  const dateError = document.getElementById("dateError");
+  const fleischhaltigeError = document.getElementById("fleischhaltigeError");
+  const vegetarischError = document.getElementById("vegetarischError");
+  const salatError = document.getElementById("salatError");
+  const nachtischError = document.getElementById("nachtischError");
 
   const namePattern = /^[A-Za-z\s]+$/;
 
   // MOCK ALLERGIES
-const mockAllergies = [
-  { id: 1, name: "Gluten" },
-  { id: 2, name: "Lactose"},
-  { id: 3, name: "Nuts" },
-  { id: 4, name: "Soy" }
+const mockFleischhaltige = [
+  { id: 1, name: "Steak"},
+  { id: 2, name: "Chicken"},
+  { id: 3, name: "Pork"},
+  { id: 4, name: "Chicken Burger"},
+  { id: 5, name: "Chicken Curry"},
+  { id: 6, name: "Chicken Kebab"}
 ];
 
 // Populate allergens dropdown
-mockAllergies.forEach(a => {
+mockFleischhaltige.forEach(a => {
   const opt = document.createElement("option");
   opt.value = a.id;
   opt.textContent = a.name;
-  allergens.appendChild(opt);
+  fleischhaltige.appendChild(opt);
 });
 
   // MOCK ALLERGIES
-const mockAdditive = [
-  { id: 1, name: "Gluten" },
-  { id: 2, name: "Lactose"},
-  { id: 3, name: "Nuts" },
-  { id: 4, name: "Soy" }
+const mockVegetarisch = [
+  { id: 1, name: "Veggie Burger"},
+  { id: 2, name:  "Pasta"},
+  { id: 3, name: "Curry"},
+  { id: 4, name: "Veggie Pizza"},
+  { id: 5, name: "Veggie Falafal"}
 ];
 
 // Populate allergens dropdown
-mockAdditive.forEach(a => {
+mockVegetarisch.forEach(a => {
   const opt = document.createElement("option");
   opt.value = a.id;
   opt.textContent = a.name;
-  additive.appendChild(opt);
+  vegetarisch.appendChild(opt);
+});
+
+  // MOCK Salat
+const mockSalat = [
+  { id: 1, name: "Greek Salad"},
+  { id: 2, name: "Caesar Salad"},
+  { id: 3, name: "Coleslaw"},
+  { id: 4, name: "Chicken Salad"},
+  { id: 5, name: "Fruit Salad"}
+];
+
+// Populate allergens dropdown
+mockSalat.forEach(a => {
+  const opt = document.createElement("option");
+  opt.value = a.id;
+  opt.textContent = a.name;
+  salat.appendChild(opt);
+});
+
+  // MOCK Nachhaltige
+const mockNachtisch = [
+  { id: 1, name: "Cake"},
+  { id: 2, name: "Ice Cream"},
+  { id: 3, name: "Fruit"}
+
+];
+
+// Populate allergens dropdown
+mockNachtisch.forEach(a => {
+  const opt = document.createElement("option");
+  opt.value = a.id;
+  opt.textContent = a.name;
+  nachtisch.appendChild(opt);
 });
 
   // --------------------
   // Validation functions
   // --------------------
-  function validateType() {
-    if (!type.value) {
-      typeError.textContent = "Please select a meal type.";
+  function validateDate() {
+    if (!date.value) {
+      dateError.textContent = "Bitte wählen Sie ein Datum.";
       return false;
     }
-    typeError.textContent = "";
+    dateError.textContent = "";
     return true;
   }
 
-  function validateMealName() {
-    const value = mealName.value.trim();
+  function validateFleischhaltige() {
+    const value = fleischhaltige.value.trim();
     if (!value) {
-      mealNameError.textContent = "Meal name is required.";
+      fleischhaltigeError.textContent = "Bitte wählen Sie eine fleischhaltige.";
       return false;
     }
-    if (value.length < 3) {
-      mealNameError.textContent = "Meal name must be at least 3 characters.";
-      return false;
-    }
-    if (!namePattern.test(value)) {
-      mealNameError.textContent = "Meal name can only contain letters and spaces.";
-      return false;
-    }
-    mealNameError.textContent = "";
+    fleischhaltigeError.textContent = "";
     return true;
   }
 
-  function validateAllergens() {
-    if (!allergens.value || allergens.value === "") {
-      allergensError.textContent = "Please select an allergen.";
+  function validateVegetarisch() {
+    if (!vegetarisch.value) {
+      vegetarischError.textContent = "Bitte wählen Sie eine vegetarisch.";
       return false;
     }
-    allergensError.textContent = "";
+    vegetarischError.textContent = "";
     return true;
   }
 
-    function validateAdditive() {
-    if (!additive.value || additive.value === "") {
-      additiveError.textContent = "Please select an additive.";
+    function validateSalat() {
+    if (!salat.value) {
+      salatError.textContent = "Bitte wählen Sie eine salat";
       return false;
     }
-    additiveError.textContent = "";
+    salatError.textContent = "";
     return true;
   }
 
-  function validatePrice() {
-    const value = parseFloat(price.value);
-    if (isNaN(value)) {
-      priceError.textContent = "Price is required.";
+    function validateNachtisch() {
+    if (!nachtisch.value) {
+      nachtischError.textContent = "Bitte wählen Sie eine nachtisch";
       return false;
     }
-    if (value <= 0) {
-      priceError.textContent = "Price must be greater than 0.";
-      return false;
-    }
-    priceError.textContent = "";
+    nachtischError.textContent = "";
     return true;
   }
 
   // --------------------
   // Live validation
   // --------------------
-  type.addEventListener("blur", validateType);
-  mealName.addEventListener("blur", validateMealName);
-  allergens.addEventListener("change", validateAllergens);
-  price.addEventListener("blur", validatePrice);
-  additive.addEventListener("blur", validateAdditive);
+  date.addEventListener("blur", validateDate);
+  fleischhaltige.addEventListener("blur", validateFleischhaltige);
+  vegetarisch.addEventListener("change", validateVegetarisch);
+  salat.addEventListener("blur", validateSalat);
+  nachtisch.addEventListener("blur", validateNachtisch);
 
   // --------------------
   // Submit validation
@@ -126,14 +149,14 @@ mockAdditive.forEach(a => {
     e.preventDefault();
 
     const isValid =
-      validateType() &&
-      validateMealName() &&
-      validateAllergens() &&
-      validatePrice() &&
-      validateAdditive();
+      validateDate() &&
+      validateFleischhaltige() &&
+      validateVegetarisch() &&
+      validateSalat() &&
+      validateNachtisch();
 
     if (isValid) {
-      console.log("Meal is valid! Ready for API submit");
+      console.log("MealPlan is valid! Ready for API submit");
       form.reset();
     } else {
       console.log("Form has errors");

@@ -7,7 +7,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
   const errorMsg = document.getElementById("errorMsg");
 
   if (username === "" || password === "") {
-    errorMsg.textContent = "All fields are required!";
+    errorMsg.textContent = "Bitte füllen Sie alle Felder aus";
     errorMsg.classList.remove("hidden");
     return;
   }
@@ -19,7 +19,7 @@ document.getElementById("loginForm")?.addEventListener("submit", function (e) {
 
     window.location.href = "login.html";
   } else {
-    errorMsg.textContent = "Invalid username or password!";
+    errorMsg.textContent = "Ungültiger Benutzername oder ungültiges Passwort!";
     errorMsg.classList.remove("hidden");
   }
 });

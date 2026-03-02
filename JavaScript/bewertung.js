@@ -12,10 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ---------- 2️⃣ Dynamic Meal Options ----------
   const mealOptions = {
-    "FleischhaltigesGericht": ["Steak", "Chicken", "Pork", "Chicken Burger", "Chicken Curry", "Chicken Kebab"],
-    "Vegetarisches Gericht": ["Veggie Burger", "Pasta", "Curry","Veggie Pizza", "Veggie flafal"],
-    "Saladbar": ["Greek Salad", "Caesar Salad", "Coleslaw", "Chicken Salad", "Fruit Salad"],
-    "Desert": ["Cake", "Ice Cream", "Fruit"]
+    "FleischhaltigesGericht": [ "Steak", "Chicken", "Pork", "Chicken Burger", "Chicken Curry", "Chicken Kebab"],
+    "Vegetarisches Gericht": [ "Veggie Burger", "Pasta", "Curry", "Veggie Pizza", "Veggie flafal"],
+    "Saladbar": [ "Greek Salad", "Caesar Salad", "Coleslaw", "Chicken Salad", "Fruit Salad"],
+    "Desert": [ "Cake", "Ice Cream", "Fruit"]
   };
 
   const typeSelect = document.getElementById("type");
