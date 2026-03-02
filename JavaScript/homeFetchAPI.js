@@ -39,7 +39,7 @@ function changeDayOfWeek(offset) {
   document.getElementById("datum").textContent = date.toLocaleDateString('en-GB');
   
   /* Update active link styling */
-  document.querySelectorAll('.UntereNavigation a').forEach(dayLink => {
+  document.querySelectorAll('.UntereNavigation span').forEach(dayLink => {
     if (dayLink.id === getDayOfWeek(date)) {
       dayLink.classList.add('Current');
     } else {
@@ -48,7 +48,7 @@ function changeDayOfWeek(offset) {
   });
 }
 
-document.querySelectorAll('.UntereNavigation a').forEach(dayLink => {
+document.querySelectorAll('.UntereNavigation span').forEach(dayLink => {
   dayLink.addEventListener('click', function() {
     const selectedDay = this.id;   
     const currentDay = getDayOfWeek(date);
@@ -64,3 +64,16 @@ document.querySelectorAll('.UntereNavigation a').forEach(dayLink => {
     changeDayOfWeek(offset);
     });
 });
+
+/* WEEK ARROW FUNCTIONALITY */
+
+document.querySelector('.WeekArrow.left').addEventListener('click', function() {
+  if (getDayOfWeek(date) === 'Montag') return;
+  changeDayOfWeek(-1);
+});
+
+document.querySelector('.WeekArrow.right').addEventListener('click', function() {
+  if (getDayOfWeek(date) === 'Freitag') return;
+  changeDayOfWeek(1);
+});
+
