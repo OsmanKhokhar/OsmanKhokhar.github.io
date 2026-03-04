@@ -28,9 +28,10 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
       errorMsg.textContent = "Ungültiger Benutzername oder Passwort!";
       errorMsg.classList.remove("hidden");
     } else {
-      localStorage.setItem("isLoggedIn", "true");
-      localStorage.setItem("username", username);
-      localStorage.setItem("token", data.access_token);
+      sessionStorage.setItem("isLoggedIn", "true");
+      sessionStorage.setItem("username", username);
+      sessionStorage.setItem("token", data.access_token);
+      sessionStorage.setItem("refreshToken", data.refresh_token);
 
       window.location.href = "login.html";
     }
@@ -41,8 +42,8 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
 
   // FAKE DATABASE LOGIN (REPLACE LATER)
 //   if (username === "admin" && password === "1234") {
-//     localStorage.setItem("isLoggedIn", "true");
-//     localStorage.setItem("username", username);
+//     sessionStorage.setItem("isLoggedIn", "true");
+//     sessionStorage.setItem("username", username);
 
 //     window.location.href = "login.html";
 //   } else {
@@ -59,8 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!authBtn) return;
 
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  const username = localStorage.getItem("username");
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  const username = sessionStorage.getItem("username");
 
   if (isLoggedIn === "true") {
     authBtn.textContent = "Abmelden";
@@ -68,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     userDisplay.classList.remove("hidden");
 
     authBtn.addEventListener("click", () => {
-      localStorage.clear();
+      sessionStorage.clear();
       window.location.reload();
     });
   } else {

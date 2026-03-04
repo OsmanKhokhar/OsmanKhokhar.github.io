@@ -1,6 +1,6 @@
 // =================== NAVBAR ===================
 window.initNavbar = function () {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
   const menus = [
     document.getElementById("menu"),
@@ -70,17 +70,17 @@ window.initNavbar = function () {
 
 // =================== MOCK AUTH ===================
 window.loginAdmin = function () {
-  localStorage.setItem("user", JSON.stringify({ role: "admin" }));
+  sessionStorage.setItem("user", JSON.stringify({ role: "admin" }));
   initNavbar();
 };
 
 window.loginUser = function () {
-  localStorage.setItem("user", JSON.stringify({ role: "user" }));
+  sessionStorage.setItem("user", JSON.stringify({ role: "user" }));
   initNavbar();
 };
 
 window.logout = function () {
-  localStorage.removeItem("user");
+  sessionStorage.removeItem("user");
   initNavbar();
 };
 
