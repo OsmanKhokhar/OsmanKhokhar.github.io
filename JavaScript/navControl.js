@@ -11,7 +11,7 @@ window.initNavbar = function () {
     if (!menu) return;
 
     const links = menu.querySelectorAll("a");
-    const logoutLink = menu.querySelector(".Abmelden-link");
+    const logoutLink = menu.querySelector(".logout-link");
 
     // ---------- RESET ----------
     links.forEach(link => {
