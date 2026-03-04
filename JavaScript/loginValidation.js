@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const username = localStorage.getItem("username");
 
   if (isLoggedIn === "true") {
-    authBtn.textContent = "Logout";
+    authBtn.textContent = "Abmelden";
     userDisplay.textContent = username;
     userDisplay.classList.remove("hidden");
 

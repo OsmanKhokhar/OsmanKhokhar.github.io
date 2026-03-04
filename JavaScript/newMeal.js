@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const allergens = document.getElementById("allergens");
   const additive = document.getElementById("additive");
   const price = document.getElementById("price");
+  const description = document.getElementById("description");
 
   const typeError = document.getElementById("typeError");
   const mealNameError = document.getElementById("mealNameError");

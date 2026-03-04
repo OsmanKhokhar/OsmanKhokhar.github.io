@@ -2,14 +2,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ---------- 1️⃣ Set hidden date ----------
-  const dateInput = document.getElementById("date");
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, "0");
-  const dd = String(today.getDate()).padStart(2, "0");
-  dateInput.value = `${yyyy}-${mm}-${dd}`;
-
   // ---------- 2️⃣ Dynamic Meal Options ----------
   const mealOptions = {
     "FleischhaltigesGericht": [ "Steak", "Chicken", "Pork", "Chicken Burger", "Chicken Curry", "Chicken Kebab"],
@@ -48,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
       type: typeSelect.value,
       meal: mealSelect.value,
       rating: document.getElementById("rating").value,
-      description: document.getElementById("description").value
     };
 
     // Simple frontend validation
@@ -78,8 +69,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // Reset meal options placeholder
     mealSelect.innerHTML = '<option value="" disabled selected>Choose a meal</option>';
 
-    // Reset hidden date to today again
-    dateInput.value = `${yyyy}-${mm}-${dd}`;
   });
 
 });
