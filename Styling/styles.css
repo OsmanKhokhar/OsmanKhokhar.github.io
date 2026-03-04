@@ -163,6 +163,9 @@
     text-align: center;
     color:var(--pinkColor);
     cursor: pointer;
+    transition-duration: font-size 0.1s;
+    display: inline-block;
+    transform-origin: center;
 
 
     > .Current {
@@ -176,6 +179,15 @@
     footer { 
         margin-top: auto;
     }
+}
+
+.HoverText {
+    display: inline-block;   
+    transition: transform 0.1s;
+}
+
+.HoverText:hover {
+    transform: scale(1.1);
 }
 
 

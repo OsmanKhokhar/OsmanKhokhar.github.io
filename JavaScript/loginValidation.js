@@ -1,28 +1,56 @@
 // ---------- LOGIN FORM VALIDATION ----------
-document.getElementById("loginForm")?.addEventListener("submit", function (e) {
+document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const errorMsg = document.getElementById("errorMsg");
 
-  if (username === "" || password === "") {
+  if (!username || !password) {
     errorMsg.textContent = "Bitte füllen Sie alle Felder aus";
     errorMsg.classList.remove("hidden");
     return;
   }
 
-  // FAKE DATABASE LOGIN (REPLACE LATER)
-  if (username === "admin" && password === "1234") {
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("username", username);
+  try {
+    const response = await fetch("https://mensa-app.test/api/v1/auth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
 
-    window.location.href = "login.html";
-  } else {
-    errorMsg.textContent = "Ungültiger Benutzername oder ungültiges Passwort!";
-    errorMsg.classList.remove("hidden");
+    const data = await response.json();
+
+    if ((data.error || data.message)) {
+      errorMsg.textContent = "Ungültiger Benutzername oder Passwort!";
+      errorMsg.classList.remove("hidden");
+    } else {
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("username", username);
+      localStorage.setItem("token", data.access_token);
+
+      window.location.href = "login.html";
+    }
+  } catch (err) {
+    console.error("Login Fehler:", err);
   }
 });
+
+  // FAKE DATABASE LOGIN (REPLACE LATER)
+//   if (username === "admin" && password === "1234") {
+//     localStorage.setItem("isLoggedIn", "true");
+//     localStorage.setItem("username", username);
+
+//     window.location.href = "login.html";
+//   } else {
+//     errorMsg.textContent = "Ungültiger Benutzername oder ungültiges Passwort!";
+//     errorMsg.classList.remove("hidden");
+//   }
+// });
+
 
 // ---------- NAVBAR LOGIN / LOGOUT ----------
 document.addEventListener("DOMContentLoaded", () => {
