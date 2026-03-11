@@ -44,7 +44,7 @@ export async function refreshAccessToken(refreshToken) {
     return response.json();
 }
 
-export async function profile(token) {
+export async function getProfile(token) {
     const response = await fetch(`${BASE_URL}/auth/profile`, {
         method: 'GET',
         headers: {
@@ -109,7 +109,7 @@ export default {
     login,
     logout,
     refreshAccessToken,
-    profile,
+    getProfile,
     getAllAllergens,
     getAllergen,
     getAllAdditives,
