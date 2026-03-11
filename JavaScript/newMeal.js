@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const additiveError = document.getElementById("additiveError");
   const priceError = document.getElementById("priceError");
 
-  const namePattern = /^[A-Za-z\s]+$/;
+  const namePattern = /^[A-Za-z0-9\s]+$/;
 
   // MOCK ALLERGIES
 const mockAllergies = [
@@ -33,7 +33,7 @@ mockAllergies.forEach(a => {
   allergens.appendChild(opt);
 });
 
-  // MOCK ALLERGIES
+  // MOCK ADDITIVES
 const mockAdditive = [
   { id: 1, name: "Gluten" },
   { id: 2, name: "Lactose"},
@@ -72,7 +72,7 @@ mockAdditive.forEach(a => {
       return false;
     }
     if (!namePattern.test(value)) {
-      mealNameError.textContent = "Der Name der Mahlzeit darf nur Buchstaben und Leerzeichen enthalten";
+      mealNameError.textContent = "Der Name der Mahlzeit darf nur Buchstaben, Zahlen und Leerzeichen enthalten";
       return false;
     }
     mealNameError.textContent = "";
