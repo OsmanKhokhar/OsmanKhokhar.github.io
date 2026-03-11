@@ -93,7 +93,7 @@ export async function getAllAdditives() {
     return response.json();
 }
 
-export async function getAllAdditive(id){
+export async function getAdditive(id){
     const response = await fetch(`${BASE_URL}/additives/${id}`, {
         method: 'GET',
         headers: {
@@ -113,5 +113,5 @@ export default {
     getAllAllergens,
     getAllergen,
     getAllAdditives,
-    getAllAdditive,
+    getAdditive,
 }
