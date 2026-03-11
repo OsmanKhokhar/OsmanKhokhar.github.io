@@ -1,4 +1,4 @@
-import api from "./api.js";
+import { login } from "./api.js";
 
 // ---------- LOGIN FORM VALIDATION ----------
 document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
@@ -16,16 +16,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
   }
 
   try {
-    const response = await fetch(`${APIURL}/auth`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    });
-
-    const data = await response.json();
+    const data = await login(username, password);
 
     if ((data.error || data.message)) {
       errorMsg.textContent = "Ungültiger Benutzername oder Passwort!";
