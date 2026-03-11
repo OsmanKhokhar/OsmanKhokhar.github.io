@@ -1,4 +1,4 @@
-import { login } from "./api.js";
+import { login, profile } from "./api.js";
 
 // ---------- LOGIN FORM VALIDATION ----------
 document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
@@ -7,7 +7,6 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const errorMsg = document.getElementById("errorMsg");
-  const APIURL = "https://mensa-app.test/api/v1";
 
   if (!username || !password) {
     errorMsg.textContent = "Bitte füllen Sie alle Felder aus";
@@ -30,21 +29,8 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
 
       // Decide role of user
       try {
-        const url = new URL(`${APIURL}/user`);
         const token = sessionStorage.getItem("token");
-
-        const headers = {
-          "Authorization": `Bearer ${token}`,
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-        };
-
-        const response = await fetch(url, {
-          method: "POST",
-          headers,
-        });
-
-        const users = await response.json();
+        const users = await profile(token);
 
         if (users.error || users.message) {
           console.error("Fehler beim Abrufen der Benutzerdaten:", users.error || users.message);
