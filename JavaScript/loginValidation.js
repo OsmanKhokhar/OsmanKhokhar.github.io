@@ -5,6 +5,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
   const errorMsg = document.getElementById("errorMsg");
+  const APIURL = "https://mensa-app.test/api/v1";
 
   if (!username || !password) {
     errorMsg.textContent = "Bitte füllen Sie alle Felder aus";
@@ -13,7 +14,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
   }
 
   try {
-    const response = await fetch("https://mensa-app.test/api/v1/auth", {
+    const response = await fetch(`${APIURL}/auth`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,9 +35,9 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
       sessionStorage.setItem("refreshToken", data.refresh_token);
       //sessionStorage.setItem("user", JSON.stringify({ role: "admin" })); // Platzhalter
 
-      // Check for admin role
+      // Decide role of user
       try {
-        const url = new URL("https://mensa-app.test/api/v1/users");
+        const url = new URL(`${APIURL}/user`);
         const token = sessionStorage.getItem("token");
 
         const headers = {
@@ -46,20 +47,22 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
         };
 
         const response = await fetch(url, {
-          method: "GET",
+          method: "POST",
           headers,
         });
 
         const users = await response.json();
 
-        // Search response for user
-        const currentUser = users.find(u => u.username === username);
-
-        if (currentUser && currentUser.is_admin) {
-          sessionStorage.setItem("user", JSON.stringify({ role: "admin" }));
-        } else {
-          sessionStorage.setItem("user", JSON.stringify({ role: "user" }));
+        if (users.error || users.message) {
+          console.error("Fehler beim Abrufen der Benutzerdaten:", users.error || users.message);
+          return;
         }
+        //get is_admin from response and set role in sessionStorage
+        const role = users.is_admin ? "admin" : "user";
+        sessionStorage.setItem("user", JSON.stringify({ role }));
+
+        //log reponse.json to console
+        console.log("User API Response:", users);
 
       } catch (err) {
         console.error("Login Fehler:", err);
