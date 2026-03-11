@@ -1,3 +1,5 @@
+import api from "./api.js";
+
 // ---------- LOGIN FORM VALIDATION ----------
 document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
   e.preventDefault();
