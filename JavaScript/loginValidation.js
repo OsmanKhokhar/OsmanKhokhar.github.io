@@ -35,44 +35,44 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
       //sessionStorage.setItem("user", JSON.stringify({ role: "admin" })); // Platzhalter
 
       // Check for admin role
-try {
-  const url = new URL("https://mensa-app.test/api/v1/users");
-  const token = sessionStorage.getItem("token");
+      try {
+        const url = new URL("https://mensa-app.test/api/v1/users");
+        const token = sessionStorage.getItem("token");
 
-  const headers = {
-    "Authorization": `Bearer ${token}`,
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-  };
+        const headers = {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        };
 
-  const response = await fetch(url, {
-    method: "GET",
-    headers,
-  });
+        const response = await fetch(url, {
+          method: "GET",
+          headers,
+        });
 
-  const users = await response.json();
+        const users = await response.json();
 
-  // Search response for user
-  const currentUser = users.find(u => u.username === username);
+        // Search response for user
+        const currentUser = users.find(u => u.username === username);
 
-  if (currentUser && currentUser.is_admin) {
-    sessionStorage.setItem("user", JSON.stringify({ role: "admin" }));
-  } else {
-    sessionStorage.setItem("user", JSON.stringify({ role: "user" }));
-  }
+        if (currentUser && currentUser.is_admin) {
+          sessionStorage.setItem("user", JSON.stringify({ role: "admin" }));
+        } else {
+          sessionStorage.setItem("user", JSON.stringify({ role: "user" }));
+        }
 
-} catch (err) {
-  console.error("Login Fehler:", err);
-}
-
-        window.location.href = "login.html";
-      }
       } catch (err) {
         console.error("Login Fehler:", err);
       }
+
+      window.location.href = "login.html";
+    }
+  } catch (err) {
+    console.error("Login Fehler:", err);
+  }
 });
 
-  // FAKE DATABASE LOGIN (REPLACE LATER)
+// FAKE DATABASE LOGIN (REPLACE LATER)
 //   if (username === "admin" && password === "1234") {
 //     sessionStorage.setItem("isLoggedIn", "true");
 //     sessionStorage.setItem("username", username);
