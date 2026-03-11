@@ -57,9 +57,61 @@ export async function profile(token) {
     return response.json();
 }
 
+export async function getAllAllergens() {
+    const response = await fetch(`${BASE_URL}/allergens`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    });
+    
+    return response.json();
+}
+
+export async function getAllergen(id){
+    const response = await fetch(`${BASE_URL}/allergens/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    });
+    
+    return response.json();
+}
+
+export async function getAllAdditives() {
+    const response = await fetch(`${BASE_URL}/additives`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    });
+    
+    return response.json();
+}
+
+export async function getAllAdditive(id){
+    const response = await fetch(`${BASE_URL}/additives/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    });
+    
+    return response.json();
+}
+
 export default {
     login,
     logout,
     refreshToken,
     profile,
+    getAllAllergens,
+    getAllergen,
+    getAllAdditives,
+    getAllAdditive,
 }
