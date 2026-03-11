@@ -32,39 +32,40 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
       sessionStorage.setItem("username", username);
       sessionStorage.setItem("token", data.access_token);
       sessionStorage.setItem("refreshToken", data.refresh_token);
-      sessionStorage.setItem("user", JSON.stringify({ role: "admin" })); // Platzhalter
+      //sessionStorage.setItem("user", JSON.stringify({ role: "admin" })); // Platzhalter
 
-      //Check for admin role
-      try {
-        const url = new URL("https://mensa-app.test/api/v1/users");
-        const token = sessionStorage.getItem("token");
+      // Check for admin role
+try {
+  const url = new URL("https://mensa-app.test/api/v1/users");
+  const token = sessionStorage.getItem("token");
 
-        const headers = {
-            "Authorization": `Bearer ${token}`,
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-        };
+  const headers = {
+    "Authorization": `Bearer ${token}`,
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+  };
 
-        fetch(url, {
-            method: "GET",
-            headers,
-        })
-        //Search response for user and if "is_admin" is true, set role to admin, else user
-        .then(users => {
-            const currentUser = users.find(u => u.username === username);
+  const response = await fetch(url, {
+    method: "GET",
+    headers,
+  });
 
-            if (currentUser && currentUser.is_admin) {
-                sessionStorage.setItem("user", JSON.stringify({ role: "admin" }));
-            } else {
-                sessionStorage.setItem("user", JSON.stringify({ role: "user" }));
-            }
-        });
-      }
-      catch (err) {
-        console.error("Login Fehler:", err);
-      }
+  const users = await response.json();
 
-          window.location.href = "login.html";
+  // Search response for user
+  const currentUser = users.find(u => u.username === username);
+
+  if (currentUser && currentUser.is_admin) {
+    sessionStorage.setItem("user", JSON.stringify({ role: "admin" }));
+  } else {
+    sessionStorage.setItem("user", JSON.stringify({ role: "user" }));
+  }
+
+} catch (err) {
+  console.error("Login Fehler:", err);
+}
+
+        window.location.href = "login.html";
       }
       } catch (err) {
         console.error("Login Fehler:", err);
