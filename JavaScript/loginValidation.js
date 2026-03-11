@@ -1,3 +1,5 @@
+import api from "./api.js";
+
 // ---------- LOGIN FORM VALIDATION ----------
 document.getElementById("loginForm")?.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -13,16 +15,8 @@ document.getElementById("loginForm")?.addEventListener("submit", async function 
   }
 
   try {
-    const response = await fetch("https://mensa-app.test/api/v1/auth", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-      body: JSON.stringify({ username, password }),
-    });
-
-    const data = await response.json();
+    const data = await api.login(username, password);
+    console.log(data);
 
     if ((data.error || data.message)) {
       errorMsg.textContent = "Ungültiger Benutzername oder Passwort!";
