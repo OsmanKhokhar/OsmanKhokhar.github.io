@@ -31,7 +31,7 @@ export async function logout(token) {
     return response.json();
 }
 
-export async function refreshToken(refreshToken) {
+export async function refreshAccessToken(refreshToken) {
     const response = await fetch(`${BASE_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
@@ -108,7 +108,7 @@ export async function getAllAdditive(id){
 export default {
     login,
     logout,
-    refreshToken,
+    refreshAccessToken,
     profile,
     getAllAllergens,
     getAllergen,
