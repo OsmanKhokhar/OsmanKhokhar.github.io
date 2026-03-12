@@ -1,4 +1,4 @@
-import { login, profile } from "./api.js";
+import { login, getProfile } from "./api.js";
 
 // ---------- LOGIN FORM VALIDATION ----------
 document.getElementById("loginForm")?.addEventListener("submit", async function(e){
@@ -30,7 +30,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
             // Decide role of user
             try{
                 const token = sessionStorage.getItem("token");
-                const users = await profile(token);
+                const users = await getProfile(token);
 
                 if(users.error || users.message){
                     console.error("Fehler beim Abrufen der Benutzerdaten:", users.error || users.message);
