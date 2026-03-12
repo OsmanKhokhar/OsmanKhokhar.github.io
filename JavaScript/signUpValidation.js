@@ -55,8 +55,7 @@ function validateUsername(){
     const value = username.value.trim();
 
     if(value.length < 4){
-        usernameError.textContent =
-            "Username must be at least 4 characters long.";
+        usernameError.textContent = "Username must be at least 4 characters long.";
         return false;
     }
 
@@ -83,8 +82,7 @@ function validatePassword(){
 // --------------------
 function validateConfirmPassword(){
     if(confirmPassword.value !== password.value){
-        confirmPasswordError.textContent =
-            "Passwords do not match.";
+        confirmPasswordError.textContent = "Passwords do not match.";
         return false;
     }
 
