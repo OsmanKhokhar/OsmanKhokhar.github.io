@@ -1,9 +1,9 @@
 'use strict';
 
-const BASE_URL = 'https://mensa-app.test/api/v1';
+import * as config from "./config";
 
 export async function login(username, password){
-    const response = await fetch(`${BASE_URL}/auth`, {
+    const response = await fetch(`${config.API_BASE_URL}/auth`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ export async function login(username, password){
 }
 
 export async function logout(token){
-    const response = await fetch(`${BASE_URL}/auth/logout`, {
+    const response = await fetch(`${config.API_BASE_URL}/auth/logout`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ export async function logout(token){
 }
 
 export async function refreshAccessToken(refreshToken){
-    const response = await fetch(`${BASE_URL}/auth/refresh`, {
+    const response = await fetch(`${config.API_BASE_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export async function refreshAccessToken(refreshToken){
 }
 
 export async function getProfile(token){
-    const response = await fetch(`${BASE_URL}/user`, {
+    const response = await fetch(`${config.API_BASE_URL}/user`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export async function getProfile(token){
 }
 
 export async function getAllAllergens(){
-    const response = await fetch(`${BASE_URL}/allergens`, {
+    const response = await fetch(`${config.API_BASE_URL}/allergens`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export async function getAllAllergens(){
 }
 
 export async function getAllergen(id){
-    const response = await fetch(`${BASE_URL}/allergens/${id}`, {
+    const response = await fetch(`${config.API_BASE_URL}/allergens/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ export async function getAllergen(id){
 }
 
 export async function getAllAdditives(){
-    const response = await fetch(`${BASE_URL}/additives`, {
+    const response = await fetch(`${config.API_BASE_URL}/additives`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ export async function getAllAdditives(){
 }
 
 export async function getAdditive(id){
-    const response = await fetch(`${BASE_URL}/additives/${id}`, {
+    const response = await fetch(`${config.API_BASE_URL}/additives/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
