@@ -1,6 +1,6 @@
 'use strict';
 
-import * as config from "./config";
+import * as config from "./config.js";
 
 export async function login(username, password){
     const response = await fetch(`${config.API_BASE_URL}/auth`, {
