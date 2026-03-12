@@ -17,25 +17,25 @@ function validateAllergyName(){
     const value = allergyName.value.trim();
 
     if(value.length === 0){
-        nameError.textContent = "Die Angabe des Allergienamens ist erforderlich";
+        nameError.textContent = "Der Name des Allergens ist erforderlich";
         return false;
     }
 
     if(value.length < 3){
         nameError.textContent =
-            "Der Allergiename muss mindestens 3 Zeichen lang sein";
+            "Der Name des Allergens muss mindestens 3 Zeichen lang sein";
         return false;
     }
 
     if(value.length > 30){
         nameError.textContent =
-            "Der Allergiename darf nicht länger als 30 Zeichen sein";
+            "Der Name des Allergens darf nicht länger als 30 Zeichen sein";
         return false;
     }
 
     if(!namePattern.test(value)){
         nameError.textContent =
-            "Der Allergiename darf nur Buchstaben und Leerzeichen enthalten";
+            "Der Name des Allergens darf nur Buchstaben und Leerzeichen enthalten";
         return false;
     }
 

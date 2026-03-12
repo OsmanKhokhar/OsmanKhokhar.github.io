@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {id: 2, name: "Pasta"},
         {id: 3, name: "Curry"},
         {id: 4, name: "Veggie Pizza"},
-        {id: 5, name: "Veggie Falafal"}
+        {id: 5, name: "Veggie Falafel"}
     ];
 
     // Populate allergens dropdown

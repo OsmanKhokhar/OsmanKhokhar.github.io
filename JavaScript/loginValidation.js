@@ -27,7 +27,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
             sessionStorage.setItem("refreshToken", data.refresh_token);
             //sessionStorage.setItem("user", JSON.stringify({ role: "admin" })); // Platzhalter
 
-            // Decide role of user
+            // Decide the role of the user
             try{
                 const token = sessionStorage.getItem("token");
                 const users = await getProfile(token);
@@ -36,11 +36,11 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
                     console.error("Fehler beim Abrufen der Benutzerdaten:", users.error || users.message);
                     return;
                 }
-                //get is_admin from response and set role in sessionStorage
+                // Get is_admin from response and set the role in sessionStorage
                 const role = users.is_admin ? "admin" : "user";
                 sessionStorage.setItem("user", JSON.stringify({role}));
 
-                //log reponse.json to console
+                // Log response.json to console
                 console.log("User API Response:", users);
 
             }catch(err){
