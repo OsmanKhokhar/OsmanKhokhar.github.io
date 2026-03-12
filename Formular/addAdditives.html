@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Allergien - Das Beruflische Bildungszentrum</title>
+  <title>Zusatzstoffe - Das Beruflische Bildungszentrum</title>
   <link rel="icon" type="image/png" href="/Bilder/logo-dark.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/Styling/styles.css">
@@ -16,15 +16,15 @@
 
   <!-- PAGE CONTENT -->
   <div class="flex justify-center pt-10 pb-20">
-    <form id="allergyForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
+    <form id="additiveForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
 
-  <h2 class="text-3xl font-bold text-center mb-6">Allergien hinzufügen</h2>
+  <h2 class="text-3xl font-bold text-center mb-6">Zusatzstoffe</h2>
 
   <!-- id -->
-  <label class="block mb-2 font-semibold">Allergy Id</label>
+  <label class="block mb-2 font-semibold">Zusatzstoff Id</label>
   <input
     type="text"
-    id="allergyId"
+    id="additiveId"
     class="w-full border text-gray-800 rounded-lg p-3"
     placeholder="Allergy Id"
   >
@@ -35,9 +35,9 @@
   <label class="block mb-2 font-semibold">Name</label>
   <input
     type="text"
-    id="allergyName"
+    id="additiveName"
     class="w-full border text-gray-800 rounded-lg p-3"
-    placeholder="Allergy Name"
+    placeholder="Additive Name"
   >
   <p id="nameError" class="text-red-500 text-sm mb-4"></p>
 
@@ -58,6 +58,6 @@
   <!-- LAYOUT SCRIPT -->
    <script src="/JavaScript/navControl.js" defer></script>
   <script src="/Layout/layout.js"></script>
-  <script src="/JavaScript/allergien.js"></script>
+  <script src="/JavaScript/additives.js"></script>
 </body>
 </html>

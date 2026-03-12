@@ -1,139 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mensa-Das Beruflische bildungszentrum</title>
-  <link rel="icon" type="image/png" href="Bilder/logo-dark.png">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="Styling/styles.css">
-</head>
+  <head>
+    <!-- Metadata und Tab-Infos -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mensa-Das Beruflische bildungszentrum</title>
+    <link rel="icon" type="image/png" href="Bilder/logo-dark.png">
 
-<body class="bg-black text-white min-h-screen flex flex-col">
+    <!-- Tailwind-CSS-Verbindung -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="Styling/styles.css">
+  </head>
 
-  <!-- NAVBAR -->
- <div id="navbar"></div>
+  <body class="bg-black text-white min-h-screen flex flex-col">
 
- <!-- Heutiges Menü -->
-<section class="center">
-  <h3 class="text-3xl font-bold text-center PinkText">Mittwoch</h3>
-  <p class="text-center font-bold text-white mb-10">26.11.2025</p>
-  <div class="EssensAnzeigeContainer">
-    <div class="HauptgerichteBox">
-      <div class="Title">
-        <div>Fleischhaltiges Menü</div>
-        <div id="info">
-          <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
+    <!-- Navigationsleiste / Header -->
+    <div id="navbar"></div>
+
+    <!-- Heutige Gerichte -->
+    <section class="center">
+      <h3 class="text-3xl font-bold text-center PinkText" id="tag">Mittwoch</h3>
+      <p class="text-center font-bold text-white mb-10" id="datum">26.11.2025</p>
+      <div class="EssensAnzeigeContainer">
+
+        <!-- Fleischhaltiges Gericht -->
+        <div class="HauptgerichteBox">
+          <div class="Title">
+            <div>Fleischhaltiges Menü</div>
+            <div id="infoFleish">
+              <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
+            </div>
+          </div>
+          <div id="FleischName" class="MenueName">Platzerhalter für Name</div>
+          <div id="FleischPreis" class="MenuePreis">0,00€</div>
+          <div id="SterneContainer" class="SterneContainer">
+            <div id="sf1"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sf2"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sf3"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sf4"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sf5"><img src="Bilder/Stern.png" alt="Stern"></div>
+          </div>
+        </div>
+
+        <!-- Vegetarisches Gericht -->
+        <div class="HauptgerichteBox">
+          <div class="Title">
+            <div>Vegetarisches Menü</div>
+            <div id="infoVegie">
+              <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
+            </div>
+          </div>
+          <div id="VegetarischName" class="MenueName">Platzerhalter für Name</div>
+          <div id="VegetarischPreis" class="MenuePreis">0,00€</div>
+          <div id="SterneContainer2" class="SterneContainer">
+            <div id="sv1"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sv2"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sv3"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sv4"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sv5"><img src="Bilder/Stern.png" alt="Stern"></div>
+          </div>
+          <div class="WeekArrow right HoverText">
+            <img src="Bilder/PfeilRechts.png">
+          </div>
+
+          <div class="WeekArrow left HoverText">
+            <img src="Bilder/PfeilLinks.png">
+          </div>
+        </div>
+
+        <!-- Salatbar -->
+        <div class="ZusatzBox links">
+          <div class="Title">
+            <div>Salatbar</div>
+            <div id="infoSalad">
+              <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
+            </div>
+          </div>
+          <div id="SalatbarName" class="MenueName">Platzerhalter für Name</div>
+          <div id="SterneContainer3" class="SterneContainer">
+            <div id="ss1"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="ss2"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="ss3"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="ss4"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="ss5"><img src="Bilder/Stern.png" alt="Stern"></div>
+          </div>
+          <div id="SalatbarPreis" class="MenuePreis">0,00€</div>
+        </div>
+
+        <!-- Dessert -->
+        <div class="ZusatzBox rechts">
+          <div class="Title">
+            <div>Dessert</div>
+            <div id="info">
+              <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
+            </div>
+          </div>
+          <div id="DessertName" class="MenueName">Platzerhalter für Name</div>
+          <div id="SterneContainer4" class="SterneContainer">
+            <div id="sd1"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sd2"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sd3"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sd4"><img src="Bilder/Stern.png" alt="Stern"></div>
+            <div id="sd5"><img src="Bilder/Stern.png" alt="Stern"></div>
+          </div>
+          <div id="DessertPreis" class="MenuePreis">0,00€</div>
+        </div>
+
+        <!-- Navigation für die Wochentage -->
+        <div class="UntereNavigation">
+          <span id="Montag" class="HoverText">MO</span>
+          <span id="Dienstag" class="HoverText">DI</span>
+          <span id="Mittwoch" class='Current HoverText'>MI</span>
+          <span id="Donnerstag" class="HoverText">DO</span>
+          <span id="Freitag" class="HoverText">FR</span>
         </div>
       </div>
-      <div id="FleischName" class="MenueName">Platzerhalter für Name</div>
-      <div id="FleischPreis" class="MenuePreis">0,00€</div>
-      <div id="SterneContainer" class="SterneContainer">
-        <div id="sf1"><img src="Bilder/Stern.png"></div>
-        <div id="sf2"><img src="Bilder/Stern.png"></div>
-        <div id="sf3"><img src="Bilder/Stern.png"></div>
-        <div id="sf4"><img src="Bilder/Stern.png"></div>
-        <div id="sf5"><img src="Bilder/Stern.png"></div>
-      </div>
-    </div>
-    <div class="HauptgerichteBox">
-      <div class="Title">
-        <div>Vegetarisches Menü</div>
-        <div id="info">
-          <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
-        </div>
-      </div>
-      <div id="VegetarischName" class="MenueName">Platzerhalter für Name</div>
-      <div id="VegetarischPreis" class="MenuePreis">0,00€</div>
-      <div id="SterneContainer2" class="SterneContainer">
-        <div id="sv1"><img src="Bilder/Stern.png"></div>
-        <div id="sv2"><img src="Bilder/Stern.png"></div>
-        <div id="sv3"><img src="Bilder/Stern.png"></div>
-        <div id="sv4"><img src="Bilder/Stern.png"></div>
-        <div id="sv5"><img src="Bilder/Stern.png"></div>
-      </div>
-    </div>
-    <div class="ZusatzBox links">
-      <div class="Title">
-        <div>Salatbar</div>
-        <div id="info">
-          <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
-        </div>
-      </div>
-      <div id="SalatbarName" class="MenueName">Platzerhalter für Name</div>
-      <div id="SterneContainer3" class="SterneContainer">
-        <div id="ss1"><img src="Bilder/Stern.png"></div>
-        <div id="ss2"><img src="Bilder/Stern.png"></div>
-        <div id="ss3"><img src="Bilder/Stern.png"></div>
-        <div id="ss4"><img src="Bilder/Stern.png"></div>
-        <div id="ss5"><img src="Bilder/Stern.png"></div>
-      </div>
-      <div id="SalatbarPreis" class="MenuePreis">0,00€</div>
-    </div>
-    <div class="ZusatzBox rechts">
-      <div class="Title">
-        <div>Dessert</div>
-        <div id="info">
-          <img src="Bilder/info.png" title="Platzerhalter Allergien / Zusatzstoffe">
-        </div>
-      </div>
-      <div id="DessertName" class="MenueName">Platzerhalter für Name</div>
-      <div id="SterneContainer4" class="SterneContainer">
-        <div id="sd1"><img src="Bilder/Stern.png"></div>
-        <div id="sd2"><img src="Bilder/Stern.png"></div>
-        <div id="sd3"><img src="Bilder/Stern.png"></div>
-        <div id="sd4"><img src="Bilder/Stern.png"></div>
-        <div id="sd5"><img src="Bilder/Stern.png"></div>
-      </div>
-      <div id="DessertPreis" class="MenuePreis">0,00€</div>
-    </div>
-    <div class="UntereNavigation">
-      <a href=''>MO</a>
-      <a href=''>DI</a>
-      <a href='' class='Current'>MI</a>
-      <a href=''>DO</a>
-      <a href=''>FR</a>
-    </div>
-  </div>
-</section>
+    </section>
 
-  <!-- FEATURES SECTION -->
-  <!-- <section class="max-w-6xl mx-auto py-16 px-4">
-    <h3 class="text-3xl font-bold text-center mb-10">Features</h3>
+    <!-- Test-Knöpfe -->
+    <!-- <button onclick="loginAdmin()">Mock Admin Login</button>
+    <button onclick="loginUser()">Mock User Login</button>
+    <button onclick="logout()">Logout</button> -->
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 shadow rounded-xl">
-        <h4 class="text-xl font-semibold mb-2">Fast Development</h4>
-        <p class="text-gray-600">Tailwind helps us build quickly with utility classes.</p>
-      </div>
 
-      <div class="bg-white p-6 shadow rounded-xl">
-        <h4 class="text-xl font-semibold mb-2">Clean UI</h4>
-        <p class="text-gray-600">Modern design for pages and forms.</p>
-      </div>
+    <!-- Fuß-Bereich -->
+    <div id="footer" class="mt-auto"></div>
 
-      <div class="bg-white p-6 shadow rounded-xl">
-        <h4 class="text-xl font-semibold mb-2">PHP Backend Ready</h4>
-        <p class="text-gray-600">Easily connect forms to your PHP server.</p>
-      </div>
-    </div>
-  </section> -->
+    <!-- Javascript -->
+    <script src="/Layout/layout.js"></script>
+    <script src="/JavaScript/navControl.js" defer></script>
+    <script src="/JavaScript/homeFetchAPI.js" defer></script>
 
-    <!-- Buttons -->
-  <button onclick="loginAdmin()">Mock Admin Login</button>
-  <button onclick="loginUser()">Mock User Login</button>
-  <button onclick="logout()">Logout</button>
+  </body>
 
-  
-  <!-- FOOTER -->
-  <div id="footer" class="mt-auto"></div>
-
-  <!-- LAYOUT SCRIPT -->
-  <script src="\Layout/layout.js"></script>
-<!-- ✅ LOAD SCRIPT HERE -->
-  <script src="\JavaScript/navControl.js" defer></script>
-
-</body>
 </html>

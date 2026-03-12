@@ -5,39 +5,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const type = document.getElementById("type");
   const mealName = document.getElementById("mealName");
   const allergens = document.getElementById("allergens");
+  const additive = document.getElementById("additive");
   const price = document.getElementById("price");
   const description = document.getElementById("description");
 
   const typeError = document.getElementById("typeError");
   const mealNameError = document.getElementById("mealNameError");
   const allergensError = document.getElementById("allergensError");
+  const additiveError = document.getElementById("additiveError");
   const priceError = document.getElementById("priceError");
-  const descriptionError = document.getElementById("descriptionError");
 
-  const namePattern = /^[A-Za-z\s]+$/;
+  const namePattern = /^[A-Za-z0-9\s]+$/;
 
   // MOCK ALLERGIES
-  const mockAllergies = [
-    { id: 1, name: "Gluten", description: "Found in wheat, barley, and rye." },
-    { id: 2, name: "Lactose", description: "Milk sugar found in dairy products." },
-    { id: 3, name: "Nuts", description: "Includes peanuts and tree nuts." },
-    { id: 4, name: "Soy", description: "Found in soybeans and soy products." }
-  ];
+const mockAllergies = [
+  { id: 1, name: "Gluten" },
+  { id: 2, name: "Lactose"},
+  { id: 3, name: "Nuts" },
+  { id: 4, name: "Soy" }
+];
 
-  // Populate allergens dropdown
-  mockAllergies.forEach(a => {
-    const opt = document.createElement("option");
-    opt.value = a.id;
-    opt.textContent = `${a.name} (${a.description})`;
-    allergens.appendChild(opt);
-  });
+// Populate allergens dropdown
+mockAllergies.forEach(a => {
+  const opt = document.createElement("option");
+  opt.value = a.id;
+  opt.textContent = a.name;
+  allergens.appendChild(opt);
+});
+
+  // MOCK ADDITIVES
+const mockAdditive = [
+  { id: 1, name: "Gluten" },
+  { id: 2, name: "Lactose"},
+  { id: 3, name: "Nuts" },
+  { id: 4, name: "Soy" }
+];
+
+// Populate allergens dropdown
+mockAdditive.forEach(a => {
+  const opt = document.createElement("option");
+  opt.value = a.id;
+  opt.textContent = a.name;
+  additive.appendChild(opt);
+});
 
   // --------------------
   // Validation functions
   // --------------------
   function validateType() {
     if (!type.value) {
-      typeError.textContent = "Please select a meal type.";
+      typeError.textContent = "Bitte wählen Sie eine Mahlzeit aus";
       return false;
     }
     typeError.textContent = "";
@@ -47,15 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
   function validateMealName() {
     const value = mealName.value.trim();
     if (!value) {
-      mealNameError.textContent = "Meal name is required.";
+      mealNameError.textContent = "Die Angabe des Gerichtsnamens ist erforderlich";
       return false;
     }
     if (value.length < 3) {
-      mealNameError.textContent = "Meal name must be at least 3 characters.";
+      mealNameError.textContent = "Der Name des Gerichts muss mindestens 3 Zeichen lang sein";
       return false;
     }
     if (!namePattern.test(value)) {
-      mealNameError.textContent = "Meal name can only contain letters and spaces.";
+      mealNameError.textContent = "Der Name der Mahlzeit darf nur Buchstaben, Zahlen und Leerzeichen enthalten";
       return false;
     }
     mealNameError.textContent = "";
@@ -64,33 +81,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function validateAllergens() {
     if (!allergens.value || allergens.value === "") {
-      allergensError.textContent = "Please select an allergen.";
+      allergensError.textContent = "Bitte wählen Sie ein Allergen aus";
       return false;
     }
     allergensError.textContent = "";
     return true;
   }
 
-  function validatePrice() {
-    const value = parseFloat(price.value);
-    if (isNaN(value)) {
-      priceError.textContent = "Price is required.";
+    function validateAdditive() {
+    if (!additive.value || additive.value === "") {
+      additiveError.textContent = "Bitte wählen Sie einen Zusatzstoff aus";
       return false;
     }
-    if (value <= 0) {
-      priceError.textContent = "Price must be greater than 0.";
-      return false;
-    }
-    priceError.textContent = "";
+    additiveError.textContent = "";
     return true;
   }
 
-  function validateDescription() {
-    if (description.value.length > 250) {
-      descriptionError.textContent = "Description must not exceed 250 characters.";
+  function validatePrice() {
+    const value = parseFloat(price.value);
+    if (isNaN(value)) {
+      priceError.textContent = "Ein Preis wird benötigt.";
       return false;
     }
-    descriptionError.textContent = "";
+    if (value <= 0) {
+      priceError.textContent = "Der Preis muss größer als 0 sein";
+      return false;
+    }
+    priceError.textContent = "";
     return true;
   }
 
@@ -101,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   mealName.addEventListener("blur", validateMealName);
   allergens.addEventListener("change", validateAllergens);
   price.addEventListener("blur", validatePrice);
-  description.addEventListener("blur", validateDescription);
+  additive.addEventListener("blur", validateAdditive);
 
   // --------------------
   // Submit validation
@@ -114,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       validateMealName() &&
       validateAllergens() &&
       validatePrice() &&
-      validateDescription();
+      validateAdditive();
 
     if (isValid) {
       console.log("Meal is valid! Ready for API submit");
