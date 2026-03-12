@@ -1,74 +1,72 @@
-
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ---------- 2️⃣ Dynamic Meal Options ----------
-  const mealOptions = {
-    "FleischhaltigesGericht": [ "Steak", "Chicken", "Pork", "Chicken Burger", "Chicken Curry", "Chicken Kebab"],
-    "Vegetarisches Gericht": [ "Veggie Burger", "Pasta", "Curry", "Veggie Pizza", "Veggie flafal"],
-    "Saladbar": [ "Greek Salad", "Caesar Salad", "Coleslaw", "Chicken Salad", "Fruit Salad"],
-    "Desert": [ "Cake", "Ice Cream", "Fruit"]
-  };
-
-  const typeSelect = document.getElementById("type");
-  const mealSelect = document.getElementById("meal");
-
-  typeSelect.addEventListener("change", () => {
-    const selectedType = typeSelect.value;
-
-    // Clear previous options
-    mealSelect.innerHTML = '<option value="" disabled selected>Choose a meal</option>';
-
-    // Populate new meals
-    if (mealOptions[selectedType]) {
-      mealOptions[selectedType].forEach(meal => {
-        const option = document.createElement("option");
-        option.value = meal;
-        option.textContent = meal;
-        mealSelect.appendChild(option);
-      });
-    }
-  });
-
-  // ---------- 3️⃣ Form Submission ----------
-  const form = document.getElementById("ratingForm");
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const data = {
-      date: dateInput.value,
-      type: typeSelect.value,
-      meal: mealSelect.value,
-      rating: document.getElementById("rating").value,
+    // ---------- 2️⃣ Dynamic Meal Options ----------
+    const mealOptions = {
+        "FleischhaltigesGericht": ["Steak", "Chicken", "Pork", "Chicken Burger", "Chicken Curry", "Chicken Kebab"],
+        "Vegetarisches Gericht": ["Veggie Burger", "Pasta", "Curry", "Veggie Pizza", "Veggie flafal"],
+        "Saladbar": ["Greek Salad", "Caesar Salad", "Coleslaw", "Chicken Salad", "Fruit Salad"],
+        "Desert": ["Cake", "Ice Cream", "Fruit"]
     };
 
-    // Simple frontend validation
-    if (!data.type || !data.meal || !data.rating) {
-      alert("Bitte füllen Sie alle Pflichtfelder aus (Typ, Meal, Rating)");
-      return;
-    }
+    const typeSelect = document.getElementById("type");
+    const mealSelect = document.getElementById("meal");
 
-    console.log("Submitting rating:", data);
+    typeSelect.addEventListener("change", () => {
+        const selectedType = typeSelect.value;
 
-    // TODO: Replace with your backend API call
-    // Example using fetch:
-    /*
-    fetch('/api/saveRating', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-    .then(res => res.json())
-    .then(response => alert("Rating saved!"))
-    .catch(err => console.error(err));
-    */
+        // Clear previous options
+        mealSelect.innerHTML = '<option value="" disabled selected>Choose a meal</option>';
 
-    alert("Rating saved successfully! (check console)");
-    form.reset();
+        // Populate new meals
+        if(mealOptions[selectedType]){
+            mealOptions[selectedType].forEach(meal => {
+                const option = document.createElement("option");
+                option.value = meal;
+                option.textContent = meal;
+                mealSelect.appendChild(option);
+            });
+        }
+    });
 
-    // Reset meal options placeholder
-    mealSelect.innerHTML = '<option value="" disabled selected>Choose a meal</option>';
+    // ---------- 3️⃣ Form Submission ----------
+    const form = document.getElementById("ratingForm");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-  });
+        const data = {
+            date: dateInput.value,
+            type: typeSelect.value,
+            meal: mealSelect.value,
+            rating: document.getElementById("rating").value,
+        };
+
+        // Simple frontend validation
+        if(!data.type || !data.meal || !data.rating){
+            alert("Bitte füllen Sie alle Pflichtfelder aus (Typ, Meal, Rating)");
+            return;
+        }
+
+        console.log("Submitting rating:", data);
+
+        // TODO: Replace with your backend API call
+        // Example using fetch:
+        /*
+        fetch('/api/saveRating', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(response => alert("Rating saved!"))
+        .catch(err => console.error(err));
+        */
+
+        alert("Rating saved successfully! (check console)");
+        form.reset();
+
+        // Reset meal options placeholder
+        mealSelect.innerHTML = '<option value="" disabled selected>Choose a meal</option>';
+
+    });
 
 });

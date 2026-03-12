@@ -13,50 +13,50 @@ const namePattern = /^[A-Za-z\s]+$/;
 // --------------------
 // Allergy name validation
 // --------------------
-function validateAllergyName() {
-  const value = allergyName.value.trim();
+function validateAllergyName(){
+    const value = allergyName.value.trim();
 
-  if (value.length === 0) {
-    nameError.textContent = "Die Angabe des Allergienamens ist erforderlich";
-    return false;
-  }
+    if(value.length === 0){
+        nameError.textContent = "Die Angabe des Allergienamens ist erforderlich";
+        return false;
+    }
 
-  if (value.length < 3) {
-    nameError.textContent =
-      "Der Allergiename muss mindestens 3 Zeichen lang sein";
-    return false;
-  }
+    if(value.length < 3){
+        nameError.textContent =
+            "Der Allergiename muss mindestens 3 Zeichen lang sein";
+        return false;
+    }
 
-  if (value.length > 30) {
-    nameError.textContent =
-      "Der Allergiename darf nicht länger als 30 Zeichen sein";
-    return false;
-  }
+    if(value.length > 30){
+        nameError.textContent =
+            "Der Allergiename darf nicht länger als 30 Zeichen sein";
+        return false;
+    }
 
-  if (!namePattern.test(value)) {
-    nameError.textContent =
-      "Der Allergiename darf nur Buchstaben und Leerzeichen enthalten";
-    return false;
-  }
+    if(!namePattern.test(value)){
+        nameError.textContent =
+            "Der Allergiename darf nur Buchstaben und Leerzeichen enthalten";
+        return false;
+    }
 
-  nameError.textContent = "";
-  return true;
+    nameError.textContent = "";
+    return true;
 }
 
 // --------------------
 // Id validation
 // --------------------
-function validateId() {
-  const value = allergyId.value.trim();
+function validateId(){
+    const value = allergyId.value.trim();
 
-  if (value.length > 5) {
-    idError.textContent =
-      "Die ID darf nicht mehr als 5 Zeichen lang sein";
-    return false;
-  }
+    if(value.length > 5){
+        idError.textContent =
+            "Die ID darf nicht mehr als 5 Zeichen lang sein";
+        return false;
+    }
 
-  idError.textContent = "";
-  return true;
+    idError.textContent = "";
+    return true;
 }
 
 // --------------------
@@ -68,15 +68,15 @@ allergyId.addEventListener("blur", validateId);
 // --------------------
 // Submit validation
 // --------------------
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+form.addEventListener("submit", function(e){
+    e.preventDefault();
 
-  const isNameValid = validateAllergyName();
-  const isIdValid = validateId();
+    const isNameValid = validateAllergyName();
+    const isIdValid = validateId();
 
-  if (isNameValid && isIdValid) {
-    // 🔜 API call will go here later
-    console.log("Allergy is valid, ready to submit");
-    form.reset();
-  }
+    if(isNameValid && isIdValid){
+        // 🔜 API call will go here later
+        console.log("Allergy is valid, ready to submit");
+        form.reset();
+    }
 });

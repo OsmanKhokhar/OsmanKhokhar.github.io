@@ -1,11 +1,11 @@
 :root {
     --pinkColor: #C72A67;
     --grayColor: #1E2428;
-    --greenColor:#29B829;
+    --greenColor: #29B829;
 }
 
 .PinkText {
-    color:var(--pinkColor);
+    color: var(--pinkColor);
 }
 
 .GrayColorBackground {
@@ -27,7 +27,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 24px;
-    gap:10px;
+    gap: 10px;
 }
 
 /* Zwei untereinander */
@@ -41,34 +41,34 @@
     margin-right: auto;
 
     > .Title {
-        display:flex;
+        display: flex;
         flex-wrap: nowrap;
-        width:100%;
+        width: 100%;
         font-weight: bold;
         font-size: 20px;
-        color:white;
-        margin-top:10px;
-        margin-left:15px;
+        color: white;
+        margin-top: 10px;
+        margin-left: 15px;
 
         > div > img {
             max-height: 20px;
-            margin-left:5px;
-            margin-top:5px;
+            margin-left: 5px;
+            margin-top: 5px;
             margin-bottom: auto;
         }
     }
 
     > .MenueName {
-       color:white;
-       margin-left:15px;
+        color: white;
+        margin-left: 15px;
     }
 
     > .MenuePreis {
         color: var(--greenColor);
         font-size: 20px;
         font-weight: bold;
-        margin-top:5px;
-        margin-left:540px;
+        margin-top: 5px;
+        margin-left: 540px;
     }
 
     > .SterneContainer {
@@ -76,11 +76,11 @@
         flex-wrap: nowrap;
         margin-top: 20px;
         margin-left: 13px;;
-        width:100%;
+        width: 100%;
 
         > div > img {
             max-height: 30px;
-            margin-right:5px;
+            margin-right: 5px;
         }
     }
 
@@ -94,35 +94,35 @@
     border-radius: 10px;
 
     > .Title {
-        display:flex;
+        display: flex;
         flex-wrap: nowrap;
         font-weight: bold;
         font-size: 20px;
-        color:white;
-        margin-top:10px;
+        color: white;
+        margin-top: 10px;
         margin-left: auto;
         margin-right: auto;
-        margin-left:15px;
+        margin-left: 15px;
 
         > div > img {
             max-height: 20px;
-            margin-left:5px;
-            margin-top:5px;
+            margin-left: 5px;
+            margin-top: 5px;
             margin-bottom: auto;
         }
     }
 
     > .MenueName {
-       color:white;
-       margin-left:15px;
+        color: white;
+        margin-left: 15px;
     }
 
     > .MenuePreis {
         color: var(--greenColor);
         font-size: 20px;
         font-weight: bold;
-        margin-top:5px;
-        margin-left:15px;
+        margin-top: 5px;
+        margin-left: 15px;
     }
 
     > .SterneContainer {
@@ -130,23 +130,23 @@
         flex-wrap: nowrap;
         margin-top: 20px;
         margin-left: 13px;
-        width:100%;
+        width: 100%;
 
         > div > img {
             max-height: 30px;
-            margin-right:5px;
+            margin-right: 5px;
         }
     }
 
 }
 
 .ZusatzBox.links {
-    margin-right:auto;
+    margin-right: auto;
     margin-left: 0px;
 }
 
 .ZusatzBox.rechts {
-    margin-left:auto;
+    margin-left: auto;
     margin-right: 0px;
 }
 
@@ -161,7 +161,7 @@
     font-weight: bold;
     font-size: 30px;
     text-align: center;
-    color:var(--pinkColor);
+    color: var(--pinkColor);
     cursor: pointer;
     transition-duration: font-size 0.1s;
     display: inline-block;
@@ -169,20 +169,21 @@
 
 
     > .Current {
-        color:white;
+        color: white;
     }
 
     div {
         margin-right: 10px;
         margin-left: 10px;
     }
-    footer { 
+
+    footer {
         margin-top: auto;
     }
 }
 
 .HoverText {
-    display: inline-block;   
+    display: inline-block;
     transition: transform 0.1s;
 }
 

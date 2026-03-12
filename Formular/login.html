@@ -1,78 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Berufliches Bildungszentrum</title>
-  <link rel="icon" type="image/png" href="/Bilder/logo-dark.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/Styling/styles.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login - Berufliches Bildungszentrum</title>
+    <link rel="icon" type="image/png" href="/Bilder/logo-dark.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/Styling/styles.css">
 </head>
 
 <body class="bg-black text-white min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
-  <div id="navbar"></div>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
 
-  <!-- LOGIN FORM -->
-  <div class="flex justify-center pt-10 pb-20">
-    <form
-      id="loginForm"
-      class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
+    <!-- LOGIN FORM -->
+    <div class="flex justify-center pt-10 pb-20">
+        <form
+                id="loginForm"
+                class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
 
-      <h2 class="text-3xl font-bold text-center mb-6">Anmelden</h2>
+            <h2 class="text-3xl font-bold text-center mb-6">Anmelden</h2>
 
-      <!-- Username -->
-      <label class="block mb-2 font-semibold">Benutzername</label>
-      <input
-        type="text"
-        id="username"
-        class="w-full border text-gray-800 rounded-lg p-3 mb-4"
-        placeholder="Enter your username"
-        required>
+            <!-- Username -->
+            <label class="block mb-2 font-semibold">Benutzername</label>
+            <input
+                    type="text"
+                    id="username"
+                    class="w-full border text-gray-800 rounded-lg p-3 mb-4"
+                    placeholder="Enter your username"
+                    required>
 
-      <!-- Password -->
-      <label class="block mb-2 font-semibold">Passwort</label>
-      <input
-        type="password"
-        id="password"
-        class="w-full border text-gray-800 rounded-lg p-3 mb-4"
-        placeholder="********"
-        required>
+            <!-- Password -->
+            <label class="block mb-2 font-semibold">Passwort</label>
+            <input
+                    type="password"
+                    id="password"
+                    class="w-full border text-gray-800 rounded-lg p-3 mb-4"
+                    placeholder="********"
+                    required>
 
-      <!-- Error Message -->
-      <p id="errorMsg" class="text-red-500 text-sm mb-4 hidden"></p>
+            <!-- Error Message -->
+            <p id="errorMsg" class="text-red-500 text-sm mb-4 hidden"></p>
 
-      <!-- Buttons -->
-      <div class="flex justify-between gap-4 mt-8">
-        <button
-          type="submit"
-          id="loginBtn"
-          class="w-1/2 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
-          Anmelden
-        </button>
+            <!-- Buttons -->
+            <div class="flex justify-between gap-4 mt-8">
+                <button
+                        type="submit"
+                        id="loginBtn"
+                        class="w-1/2 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
+                    Anmelden
+                </button>
 
-        <a href="/index.html"
-           class="w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg hover:bg-gray-400">
-          Home
-        </a>
-      </div>
-    </form>
-  </div>
+                <a href="/index.html"
+                        class="w-1/2 text-center bg-gray-300 text-gray-800 py-3 rounded-lg hover:bg-gray-400">
+                    Home
+                </a>
+            </div>
+        </form>
+    </div>
 
-  <!-- FOOTER -->
-  <div id="footer" class="mt-auto"></div>
+    <!-- FOOTER -->
+    <div id="footer" class="mt-auto"></div>
 
-  <!-- LAYOUT SCRIPT -->
-   <script>
-  // Prüfen, ob der User eingeloggt ist
-  if (sessionStorage.getItem('user')) {
-    // Weiterleitung zur index.html, falls User existiert
-    window.location.href = '\\index.html';
-  }
-</script>
-   <script src="/JavaScript/navControl.js" defer></script>
-  <script src="/Layout/layout.js"></script>
-  <script src="/JavaScript/loginValidation.js" type="module"></script>
+    <!-- LAYOUT SCRIPT -->
+    <script>
+        // Prüfen, ob der User eingeloggt ist
+        if(sessionStorage.getItem('user')){
+            // Weiterleitung zur index.html, falls User existiert
+            window.location.href = '\\index.html';
+        }
+    </script>
+    <script src="/JavaScript/navControl.js" defer></script>
+    <script src="/Layout/layout.js"></script>
+    <script src="/JavaScript/loginValidation.js" type="module"></script>
 </body>
 </html>

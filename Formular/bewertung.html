@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bewertung - Das Beruflische Bildungszentrum</title>
-  <link rel="icon" type="image/png" href="/Bilder/logo-dark.png">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/Styling/styles.css">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bewertung - Das Beruflische Bildungszentrum</title>
+    <link rel="icon" type="image/png" href="/Bilder/logo-dark.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/Styling/styles.css">
 </head>
 
 <body class="bg-black text-white min-h-screen flex flex-col">
 
-  <!-- NAVBAR -->
-  <div id="navbar"></div>
+    <!-- NAVBAR -->
+    <div id="navbar"></div>
 
-  <!-- PAGE CONTENT -->
-  <div class="flex justify-center pt-10 pb-20 ">
-    <form id="ratingForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
+    <!-- PAGE CONTENT -->
+    <div class="flex justify-center pt-10 pb-20 ">
+        <form id="ratingForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
 
-      <h2 class="text-3xl font-bold text-center mb-6">Bewertung</h2>
+            <h2 class="text-3xl font-bold text-center mb-6">Bewertung</h2>
 
-      <!-- Hidden Date -->
-      <input type="hidden" id="date">
+            <!-- Hidden Date -->
+            <input type="hidden" id="date">
 
-      <!-- Type -->
-      <label class="block mb-2 font-semibold">Typ</label>
-      <select id="type" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
-        <option value="FleischhaltigesGericht">FleischhaltigesGericht</option>
-        <option value="Vegetarisches Gericht">Vegetarisches Gericht</option>
-        <option value="Saladbar">Salatbar</option>
-        <option value="Desert">Nachtisch</option>
-      </select>
+            <!-- Type -->
+            <label class="block mb-2 font-semibold">Typ</label>
+            <select id="type" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+                <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
+                <option value="FleischhaltigesGericht">FleischhaltigesGericht</option>
+                <option value="Vegetarisches Gericht">Vegetarisches Gericht</option>
+                <option value="Saladbar">Salatbar</option>
+                <option value="Desert">Nachtisch</option>
+            </select>
 
-      <!-- Meal -->
-      <label class="block mb-2 font-semibold">Gericht Name</label>
-      <select id="meal" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>Bitte auswählen</option>
-      </select>
+            <!-- Meal -->
+            <label class="block mb-2 font-semibold">Gericht Name</label>
+            <select id="meal" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+                <option value="" disabled selected>Bitte auswählen</option>
+            </select>
 
-      <!-- Rating -->
-      <label class="block mb-2 font-semibold">Bewertung</label>
-      <select id="rating" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
-        <option value="" disabled selected>Bewertung in Sternen</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+            <!-- Rating -->
+            <label class="block mb-2 font-semibold">Bewertung</label>
+            <select id="rating" class="w-full border text-gray-800 rounded-lg p-3 mb-4">
+                <option value="" disabled selected>Bewertung in Sternen</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
 
-      <!-- Save Button -->
-      <button type="submit" class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
-        Speichern
-      </button>
-    </form>
-  </div>
+            <!-- Save Button -->
+            <button type="submit" class="w-full mt-8 PinkColorBackground text-white py-3 rounded-lg hover:bg-pink-800">
+                Speichern
+            </button>
+        </form>
+    </div>
 
-  <!-- FOOTER -->
-  <div id="footer" class="mt-auto"></div>
+    <!-- FOOTER -->
+    <div id="footer" class="mt-auto"></div>
 
-  <!-- LAYOUT SCRIPT -->
-   <script src="/JavaScript/navControl.js" defer></script>
-  <script src="/Layout/layout.js"></script>
-  <script src="/JavaScript/bewertung.js"></script>
+    <!-- LAYOUT SCRIPT -->
+    <script src="/JavaScript/navControl.js" defer></script>
+    <script src="/Layout/layout.js"></script>
+    <script src="/JavaScript/bewertung.js"></script>
 </body>
 </html>

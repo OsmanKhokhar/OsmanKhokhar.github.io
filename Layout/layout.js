@@ -1,17 +1,17 @@
 // LOAD NAVBAR
 fetch("/Layout/navBar.html")
-  .then(response => response.text())
-  .then(data => {
-    const navbar = document.getElementById("navbar");
-    if (navbar) {
-      navbar.innerHTML = data; 
+    .then(response => response.text())
+    .then(data => {
+        const navbar = document.getElementById("navbar");
+        if(navbar){
+            navbar.innerHTML = data;
 
-      // ✅ CRITICAL LINE
-      if (window.initNavbar) {
-        window.initNavbar();
-      }
-    }
-  });
+            // ✅ CRITICAL LINE
+            if(window.initNavbar){
+                window.initNavbar();
+            }
+        }
+    });
 
 // Der Rick
 // document.addEventListener("keydown", function (event) {
@@ -29,8 +29,10 @@ fetch("/Layout/navBar.html")
 
 // LOAD FOOTER
 fetch("/Layout/footer.html")
-  .then(response => response.text())
-  .then(data => {
-    const footer = document.getElementById("footer");
-    if (footer) footer.innerHTML = data;
-  });
+    .then(response => response.text())
+    .then(data => {
+        const footer = document.getElementById("footer");
+        if(footer){
+            footer.innerHTML = data;
+        }
+    });
