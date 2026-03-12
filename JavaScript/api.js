@@ -45,8 +45,8 @@ export async function refreshAccessToken(refreshToken){
 }
 
 export async function getProfile(token){
-    const response = await fetch(`${BASE_URL}/auth/profile`, {
-        method: 'GET',
+    const response = await fetch(`${BASE_URL}/user`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
