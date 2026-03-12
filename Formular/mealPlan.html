@@ -19,30 +19,30 @@
         <form id="mealPlanForm" class="GrayColorBackground p-8 rounded-xl shadow-lg w-full max-w-md mt-10">
             <h2 class="text-3xl font-bold text-center mb-6">Essensplan</h2>
 
-            <label class="block mb-2 font-semibold">Datum</label>
+            <label for="date" class="block mb-2 font-semibold">Datum</label>
             <input type="date" id="date" class="w-full rounded-lg p-3 text-gray-400" placeholder="31.12.2025">
             <p id="dateError" class="text-red-500 text-sm mb-4"></p>
 
-            <label class="block mb-2 font-semibold">Fleischhaltiges Gericht</label>
+            <label for="fleischhaltige" class="block mb-2 font-semibold">Fleischhaltiges Gericht</label>
             <select id="fleischhaltige" class="w-full border text-gray-800 rounded-lg p-3">
                 <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
             </select>
             <p id="fleischhaltigeError" class="text-red-500 text-sm mb-4"></p>
 
             <!-- Meal -->
-            <label class="block mb-2 font-semibold">Vegetarisches Gericht</label>
+            <label for="vegetarisch" class="block mb-2 font-semibold">Vegetarisches Gericht</label>
             <select id="vegetarisch" class="w-full border text-gray-800 rounded-lg p-3">
                 <option value="" disabled selected>Bitte auswählen</option>
             </select>
             <p id="vegetarischError" class="text-red-500 text-sm mb-4"></p>
 
-            <label class="block mb-2 font-semibold">Salatbar</label>
+            <label for="salat" class="block mb-2 font-semibold">Salatbar</label>
             <select id="salat" class="w-full border text-gray-800 rounded-lg p-3">
                 <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
             </select>
             <p id="salatError" class="text-red-500 text-sm mb-4"></p>
 
-            <label class="block mb-2 font-semibold">Nachtisch</label>
+            <label for="nachtisch" class="block mb-2 font-semibold">Nachtisch</label>
             <select id="nachtisch" class="w-full border text-gray-800 rounded-lg p-3">
                 <option value="" disabled selected class="text-gray-400">Bitte auswählen</option>
             </select>
