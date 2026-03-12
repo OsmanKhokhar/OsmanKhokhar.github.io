@@ -142,12 +142,12 @@
 
 .ZusatzBox.links {
     margin-right: auto;
-    margin-left: 0px;
+    margin-left: 0;
 }
 
 .ZusatzBox.rechts {
     margin-left: auto;
-    margin-right: 0px;
+    margin-right: 0;
 }
 
 .UntereNavigation {
