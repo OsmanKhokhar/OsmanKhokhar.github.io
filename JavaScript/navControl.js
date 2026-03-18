@@ -23,7 +23,7 @@ window.initNavbar = function(){
         // ---------- NOT LOGGED IN ----------
         if(!user){
             links.forEach(link => {
-                if(["Home", "Anmelden", "Registrieren"].includes(link.textContent.trim())){
+                if(["Home", "Anmelden"].includes(link.textContent.trim())){
                     link.style.display = "block";
                 }
             });
@@ -40,7 +40,7 @@ window.initNavbar = function(){
 
             // ADMIN sees everything except login/register
             if(user.role === "admin"){
-                if(!["Anmelden", "Registrieren"].includes(text)){
+                if(!["Anmelden"].includes(text)){
                     link.style.display = "block";
                 }
             }

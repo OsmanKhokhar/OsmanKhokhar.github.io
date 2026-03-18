@@ -1,5 +1,7 @@
 /* DATE */
 
+import { getSpecificMenu } from "./api.js";
+
 const date = new Date();
 
 /*Check if date is weekend, if so set to next Monday*/
@@ -34,6 +36,9 @@ function changeDayOfWeek(offset){
     date.setDate(date.getDate() + offset);
     document.getElementById("tag").textContent = getDayOfWeek(date);
     document.getElementById("datum").textContent = date.toLocaleDateString('en-GB');
+
+    /* Update meal data for the new date */
+    LoadMealsData();
 
     /* Update active link styling */
     document.querySelectorAll('.UntereNavigation span').forEach(dayLink => {
@@ -74,3 +79,69 @@ document.querySelector('.WeekArrow.right').addEventListener('click', function(){
     changeDayOfWeek(1);
 });
 
+// API CALL MENU DATA
+
+async function LoadMealsData(){
+    const menuData = await getSpecificMenu(date.toISOString().split("T")[0]);
+    
+    if(menuData.error || menuData.message){
+        console.error("Fehler beim Abrufen des Menüs:", menuData.error || menuData.message);
+    }else{
+        console.log("Menü API Response:", menuData);
+    }
+
+    //Fleischhaltiges Gericht: extract info from menuData and display it on the page
+    // IDs: FleischName, FleischPreis
+    if(menuData.meals && menuData.meals.length > 0){
+        const fleischhaltigeMeal = menuData.meals.find(meal => meal.category_id === 1);
+        if(fleischhaltigeMeal){
+            document.getElementById("FleischName").textContent = fleischhaltigeMeal.name;
+            document.getElementById("FleischPreis").textContent = `${fleischhaltigeMeal.price} €`;
+        }
+    }
+
+    //Vegetarisches Gericht: extract info from menuData and display it on the page
+    // IDs: VegetarischName, VegetarischPreis
+    if(menuData.meals && menuData.meals.length > 0){
+        const vegetarischMeal = menuData.meals.find(meal => meal.category_id === 2);
+        if(vegetarischMeal){
+            document.getElementById("VegetarischName").textContent = vegetarischMeal.name;
+            document.getElementById("VegetarischPreis").textContent = `${vegetarischMeal.price} €`;
+        }
+    }
+
+    //Salat: extract info from menuData and display it on the page
+    // IDs: SalatbarName, SalatbarPreis
+    if(menuData.meals && menuData.meals.length > 0){
+        const salatMeal = menuData.meals.find(meal => meal.category_id === 3);
+        if(salatMeal){
+            document.getElementById("SalatbarName").textContent = salatMeal.name;
+            document.getElementById("SalatbarPreis").textContent = `${salatMeal.price} €`;
+        }
+    }
+
+    //Nachtisch: extract info from menuData and display it on the page
+    // IDs: DessertName, DessertPreis
+    if(menuData.meals && menuData.meals.length > 0){
+        const nachtischMeal = menuData.meals.find(meal => meal.category_id === 4);
+        if(nachtischMeal){
+            document.getElementById("DessertName").textContent = nachtischMeal.name;
+            document.getElementById("DessertPreis").textContent = `${nachtischMeal.price} €`;
+        }
+    }
+
+    //if no meals are available for the selected date, display a message
+    if(menuData.error || menuData.message){
+        document.getElementById("FleischName").textContent = "Keine Daten verfügbar";
+        document.getElementById("FleischPreis").textContent = "0.00 €";
+        document.getElementById("VegetarischName").textContent = "Keine Daten verfügbar";
+        document.getElementById("VegetarischPreis").textContent = "0.00 €";
+        document.getElementById("SalatbarName").textContent = "Keine Daten verfügbar";
+        document.getElementById("SalatbarPreis").textContent = "0.00 €";
+        document.getElementById("DessertName").textContent = "Keine Daten verfügbar";
+        document.getElementById("DessertPreis").textContent = "0.00 €";
+    }
+
+}
+
+LoadMealsData();
