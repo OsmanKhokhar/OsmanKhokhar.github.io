@@ -1,4 +1,5 @@
 import { login, getProfile } from "./api.js";
+import storageService from "./services/storage/storageService.js";
 
 // ---------- LOGIN FORM VALIDATION ----------
 document.getElementById("loginForm")?.addEventListener("submit", async function(e){
@@ -21,15 +22,15 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
             errorMsg.textContent = "Ungültiger Benutzername oder Passwort!";
             errorMsg.classList.remove("hidden");
         }else{
-            sessionStorage.setItem("isLoggedIn", "true");
-            sessionStorage.setItem("username", username);
-            sessionStorage.setItem("token", data.access_token);
-            sessionStorage.setItem("refreshToken", data.refresh_token);
-            //sessionStorage.setItem("user", JSON.stringify({ role: "admin" })); // Platzhalter
+            storageService.set("isLoggedIn", true);
+            storageService.set("username", username);
+            storageService.set("token", data.access_token);
+            storageService.set("refreshToken", data.refresh_token);
+            //storageService.set("user", JSON.stringify({ role: "admin" })); // Platzhalter
 
             // Decide the role of the user
             try{
-                const token = sessionStorage.getItem("token");
+                const token = storageService.get("token");
                 const users = await getProfile(token);
 
                 if(users.error || users.message){
@@ -38,7 +39,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
                 }
                 // Get is_admin from response and set the role in sessionStorage
                 const role = users.is_admin ? "admin" : "user";
-                sessionStorage.setItem("user", JSON.stringify({role}));
+                storageService.set("user", JSON.stringify({role}));
 
                 // Log response.json to console
                 console.log("User API Response:", users);
@@ -76,8 +77,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-    const username = sessionStorage.getItem("username");
+    const isLoggedIn = storageService.get("isLoggedIn");
+    const username = storageService.get("username");
 
     if(isLoggedIn === "true"){
         authBtn.textContent = "Abmelden";
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         userDisplay.classList.remove("hidden");
 
         authBtn.addEventListener("click", () => {
-            sessionStorage.clear();
+            storageService.destroy();
             window.location.reload();
         });
     }else{

@@ -1,3 +1,7 @@
+'use strict';
+
+import {register} from "./api.js";
+
 const form = document.getElementById("signupForm");
 
 const firstName = document.getElementById("first_name");
@@ -124,8 +128,11 @@ form.addEventListener("submit", function(e){
         isPasswordValid &&
         isConfirmValid
     ){
-        // 🔜 API call will go here later
-        alert("Registration successful!");
+        
+        const response = register(username.value, firstName.value, lastName.value, password.value, confirmPassword.value);
+        
+        console.log("Registration successful:", response);
+        
         form.reset();
     }
 });

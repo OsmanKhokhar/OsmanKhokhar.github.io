@@ -1,6 +1,6 @@
 'use strict';
 
-import { STORAGE_KEY } from "../config.js";
+import { STORAGE_KEY } from "../../config.js";
 
 let storage = JSON.parse(sessionStorage.getItem(STORAGE_KEY)) ?? {};
 
@@ -22,8 +22,19 @@ export function remove(key){
     persist();
 }
 
+export function clear(){
+    storage = {};
+    persist();
+}
+
+export function destroy(){
+    sessionStorage.removeItem(STORAGE_KEY);
+}
+
 export default {
     get,
     set,
     remove,
+    clear,
+    destroy,
 }
