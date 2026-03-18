@@ -1,5 +1,4 @@
 import { getAllMeals, storeMenu } from "./api.js";
-import storageService from "./services/storage/storageService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -128,29 +127,27 @@ document.addEventListener("DOMContentLoaded", async () => {
     // API Submit Meals
     form.addEventListener("submit", async e => {
         e.preventDefault();
-    try{
-        const token = storageService.get("token");
-
-        //format date to YYYY-MM-DD
-        const selectedDate = new Date(date.value);
-        const formattedDate = selectedDate.toISOString().split("T")[0];
-
-        //API UPLOAD ALL MEALS IN ONE CALL
-        const mealIds = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value];
-        const response = await storeMenu(token, formattedDate, mealIds);
-        if(response.error || response.message){
-            console.error("Fehler beim Hochladen der Mahlzeiten:", response.error || response.message);
-            console.log("Request Payload:", { date: formattedDate, meal_ids: mealIds });
-            console.log("response:", response);
-        }else{
-            console.log("Mahlzeiten erfolgreich hochgeladen:", response);
+        try{
+            //format date to YYYY-MM-DD
+            const selectedDate = new Date(date.value);
+            const formattedDate = selectedDate.toISOString().split("T")[0];
+    
+    
+            //API UPLOAD ALL MEALS IN ONE CALL
+            const mealIds = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value];
+            const response = await storeMenu(formattedDate, mealIds);
+            if(response.error || response.message){
+                console.error("Fehler beim Hochladen der Mahlzeiten:", response.error || response.message);
+                console.log("Request Payload:", { date: formattedDate, meal_ids: mealIds });
+                console.log("response:", response);
+            }else{
+                console.log("Mahlzeiten erfolgreich hochgeladen:", response);
+            }
+    
+            form.reset();
+            
+        }catch(err){
+            console.error("Fehler beim Hochladen der Mahlzeiten:", err);
         }
-
-        form.reset();
-        
-    }catch(err){
-        console.error("Fehler beim Hochladen der Mahlzeiten:", err);
-    }
     });
-
 });
