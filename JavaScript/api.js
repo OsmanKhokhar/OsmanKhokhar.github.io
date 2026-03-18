@@ -138,5 +138,6 @@ export default {
     getAllergen,
     getAllAdditives,
     getAdditive,
+    getMeal,
     getAllMeals,
 }
