@@ -129,6 +129,23 @@ export async function getAllMeals(){
     return response.json();
 }
 
+export async function storeMenu(token, date, mealId){
+    const response = await fetch(`${config.API_BASE_URL}/menus`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            date: date,
+            meals: mealId
+        })
+    })
+
+    return response.json();
+}
+
 export default {
     login,
     logout,
