@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+import { listAllMeals } from "./api.js";
+
+document.addEventListener("DOMContentLoaded", async () => {
 
     const form = document.getElementById("mealPlanForm");
     const date = document.getElementById("date");
@@ -15,23 +17,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const namePattern = /^[A-Za-z\s]+$/;
 
-    // MOCK ALLERGIES
-    const mockFleischhaltige = [
-        {id: 1, name: "Steak"},
-        {id: 2, name: "Chicken"},
-        {id: 3, name: "Pork"},
-        {id: 4, name: "Chicken Burger"},
-        {id: 5, name: "Chicken Curry"},
-        {id: 6, name: "Chicken Kebab"}
-    ];
+    // MOCK FLEISCHHALTIGE
+    // const mockFleischhaltige = [
+    //     {id: 1, name: "Steak"},
+    //     {id: 2, name: "Chicken"},
+    //     {id: 3, name: "Pork"},
+    //     {id: 4, name: "Chicken Burger"},
+    //     {id: 5, name: "Chicken Curry"},
+    //     {id: 6, name: "Chicken Kebab"}
+    // ];
 
-    // Populate allergens dropdown
-    mockFleischhaltige.forEach(a => {
-        const opt = document.createElement("option");
-        opt.value = a.id;
-        opt.textContent = a.name;
-        fleischhaltige.appendChild(opt);
-    });
+    // API CALL FLEISCHHALTIGE
+    try{
+        const response = await listAllMeals();
+        if(response.error || response.message){
+            console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
+        }else{
+            console.log("Mahlzeiten API Response:", response);
+            response.forEach(meal => {
+                if(meal.category_id === 1){
+                    const opt = document.createElement("option");
+                    opt.value = meal.id;
+                    opt.textContent = meal.name;
+                    fleischhaltige.appendChild(opt);
+                }
+            });
+        }
+    }catch(err){
+        console.error("Fehler beim Abrufen der Mahlzeiten:", err);
+    }
+    
+
+    // Populate fleischhaltige dropdown
+    // mockFleischhaltige.forEach(a => {
+    //     const opt = document.createElement("option");
+    //     opt.value = a.id;
+    //     opt.textContent = a.name;
+    //     fleischhaltige.appendChild(opt);
+    // });
 
     // MOCK ALLERGIES
     const mockVegetarisch = [

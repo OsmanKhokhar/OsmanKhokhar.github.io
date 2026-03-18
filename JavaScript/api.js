@@ -105,6 +105,18 @@ export async function getAdditive(id){
     return response.json();
 }
 
+export async function listAllMeals(){
+    const response = await fetch(`${config.API_BASE_URL}/meals`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    })
+
+    return response.json();
+}
+
 export default {
     login,
     logout,
