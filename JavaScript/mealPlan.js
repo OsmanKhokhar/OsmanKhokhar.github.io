@@ -1,4 +1,5 @@
 import { getAllMeals, storeMenu } from "./api.js";
+import storageService from "./services/storage/storageService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -249,7 +250,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     form.addEventListener("submit", async e => {
         e.preventDefault();
     try{
-        const token = sessionStorage.getItem("token");
+        const token = storageService.get("token");
 
         //format date to YYYY-MM-DD
         const selectedDate = new Date(date.value);

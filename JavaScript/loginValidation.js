@@ -37,7 +37,7 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
                     console.error("Fehler beim Abrufen der Benutzerdaten:", users.error || users.message);
                     return;
                 }
-                // Get is_admin from response and set the role in sessionStorage
+                // Get is_admin from response and set the role in storage
                 const role = users.is_admin ? "admin" : "user";
                 storageService.set("user", JSON.stringify({role}));
 
@@ -57,8 +57,8 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
 
 // FAKE DATABASE LOGIN (REPLACE LATER)
 //   if (username === "admin" && password === "1234") {
-//     sessionStorage.setItem("isLoggedIn", "true");
-//     sessionStorage.setItem("username", username);
+//     storageService.set("isLoggedIn", "true");
+//     storageService.set("username", username);
 
 //     window.location.href = "login.html";
 //   } else {

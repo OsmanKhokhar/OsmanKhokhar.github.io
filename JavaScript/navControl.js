@@ -1,6 +1,8 @@
+import storageService from "./services/storage/storageService.js";
+
 // =================== NAVBAR ===================
 window.initNavbar = function(){
-    const user = JSON.parse(sessionStorage.getItem("user"));
+    const user = JSON.parse(storageService.get("user"));
 
     const menus = [
         document.getElementById("menu"),
@@ -74,17 +76,17 @@ window.initNavbar = function(){
 
 // =================== MOCK AUTH ===================
 window.loginAdmin = function(){
-    sessionStorage.setItem("user", JSON.stringify({role: "admin"}));
+    storageService.set("user", {role: "admin"});
     initNavbar();
 };
 
 window.loginUser = function(){
-    sessionStorage.setItem("user", JSON.stringify({role: "user"}));
+    storageService.set("user", {role: "user"});
     initNavbar();
 };
 
 window.logout = function(){
-    sessionStorage.removeItem("user");
+    storageService.remove("user");
     initNavbar();
 };
 
