@@ -146,6 +146,26 @@ export async function storeMenu(token, date, mealId){
     return response.json();
 }
 
+export function register(username, first_name, last_name, password, passwordConfirmation, isAdmin = false){
+    const response = fetch(`${config.API_BASE_URL}/auth/register`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            first_name: first_name,
+            last_name: last_name,
+            password: password,
+            password_confirmation: passwordConfirmation,
+            is_admin: isAdmin,
+        })
+    });
+    
+    return response.json();
+}
+
 export default {
     login,
     logout,
