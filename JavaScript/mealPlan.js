@@ -1,5 +1,4 @@
 import { getAllMeals, storeMenu } from "./api.js";
-import storageService from "./services/storage/storageService.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -250,8 +249,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     form.addEventListener("submit", async e => {
         e.preventDefault();
         try{
-            const token = storageService.get("token");
-    
             //format date to YYYY-MM-DD
             const selectedDate = new Date(date.value);
             const formattedDate = selectedDate.toISOString().split("T")[0];
@@ -270,7 +267,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
             //API UPLOAD ALL MEALS IN ONE CALL
             const mealIds = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value];
-            const response = await storeMenu(token, formattedDate, mealIds);
+            const response = await storeMenu(formattedDate, mealIds);
             if(response.error || response.message){
                 console.error("Fehler beim Hochladen der Mahlzeiten:", response.error || response.message);
                 console.log("Request Payload:", { date: formattedDate, meal_ids: mealIds });
