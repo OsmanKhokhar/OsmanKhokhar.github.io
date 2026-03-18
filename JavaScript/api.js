@@ -28,7 +28,7 @@ export async function logout(){
             'Accept': 'application/json',
             'Authorization': `Bearer ${token}`,
         },
-    })
+    });
 
     return response.json();
 }
@@ -42,7 +42,7 @@ export async function refreshAccessToken(){
             'Accept': 'application/json',
             'Authorization': `Bearer ${refreshToken}`,
         },
-    })
+    });
 
     return response.json();
 }
@@ -146,7 +146,7 @@ export async function storeMenu(date, mealId){
             date: date,
             meals: mealId
         })
-    })
+    });
 
     return response.json();
 }
@@ -181,7 +181,7 @@ export async function register(username, first_name, last_name, password, passwo
             is_admin: isAdmin,
         })
     });
-    
+
     return response.json();
 }
 
