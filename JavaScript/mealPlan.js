@@ -249,41 +249,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     // API Submit Meals
     form.addEventListener("submit", async e => {
         e.preventDefault();
-    try{
-        const token = storageService.get("token");
-
-        //format date to YYYY-MM-DD
-        const selectedDate = new Date(date.value);
-        const formattedDate = selectedDate.toISOString().split("T")[0];
-
-        //API Upload each meal id
-        // for(let i = 0; i < 4; i++){
-        //     const mealId = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value][i];
-        //     const category = ["Fleischhaltige", "Vegetarisch", "Salat", "Nachtisch"][i];
-        //     const response = await StoreMenu(token, formattedDate, mealId);
-        //     if(response.error || response.message){
-        //         console.error(`Fehler beim Hochladen der ${category}-Kategorie:`, response.error || response.message);
-        //     }else{
-        //         console.log(`${category} erfolgreich hochgeladen:`, response);
-        //     }
-        // }
-
-        //API UPLOAD ALL MEALS IN ONE CALL
-        const mealIds = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value];
-        const response = await storeMenu(token, formattedDate, mealIds);
-        if(response.error || response.message){
-            console.error("Fehler beim Hochladen der Mahlzeiten:", response.error || response.message);
-            console.log("Request Payload:", { date: formattedDate, meal_ids: mealIds });
-            console.log("response:", response);
-        }else{
-            console.log("Mahlzeiten erfolgreich hochgeladen:", response);
+        try{
+            const token = storageService.get("token");
+    
+            //format date to YYYY-MM-DD
+            const selectedDate = new Date(date.value);
+            const formattedDate = selectedDate.toISOString().split("T")[0];
+    
+            //API Upload each meal id
+            // for(let i = 0; i < 4; i++){
+            //     const mealId = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value][i];
+            //     const category = ["Fleischhaltige", "Vegetarisch", "Salat", "Nachtisch"][i];
+            //     const response = await StoreMenu(token, formattedDate, mealId);
+            //     if(response.error || response.message){
+            //         console.error(`Fehler beim Hochladen der ${category}-Kategorie:`, response.error || response.message);
+            //     }else{
+            //         console.log(`${category} erfolgreich hochgeladen:`, response);
+            //     }
+            // }
+    
+            //API UPLOAD ALL MEALS IN ONE CALL
+            const mealIds = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value];
+            const response = await storeMenu(token, formattedDate, mealIds);
+            if(response.error || response.message){
+                console.error("Fehler beim Hochladen der Mahlzeiten:", response.error || response.message);
+                console.log("Request Payload:", { date: formattedDate, meal_ids: mealIds });
+                console.log("response:", response);
+            }else{
+                console.log("Mahlzeiten erfolgreich hochgeladen:", response);
+            }
+    
+            form.reset();
+            
+        }catch(err){
+            console.error("Fehler beim Hochladen der Mahlzeiten:", err);
         }
-
-        form.reset();
-        
-    }catch(err){
-        console.error("Fehler beim Hochladen der Mahlzeiten:", err);
-    }
     });
-
 });
