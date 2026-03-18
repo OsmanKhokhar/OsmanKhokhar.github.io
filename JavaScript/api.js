@@ -106,7 +106,7 @@ export async function getAdditive(id){
 }
 
 export async function getMeal(id){
-    const response = await fetch(`${config.API_BASE_URL}/api/v1/meals/${id}}`, {
+    const response = await fetch(`${config.API_BASE_URL}/meals/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
