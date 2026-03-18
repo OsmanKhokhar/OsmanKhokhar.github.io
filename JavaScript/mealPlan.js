@@ -41,120 +41,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                     opt.textContent = meal.name;
                     fleischhaltige.appendChild(opt);
                 }
-            });
-        }
-    }catch(err){
-        console.error("Fehler beim Abrufen der Mahlzeiten:", err);
-    }
-    
-
-    // Populate fleischhaltige dropdown
-    // mockFleischhaltige.forEach(a => {
-    //     const opt = document.createElement("option");
-    //     opt.value = a.id;
-    //     opt.textContent = a.name;
-    //     fleischhaltige.appendChild(opt);
-    // });
-
-    // MOCK Vegetarisch
-    // const mockVegetarisch = [
-    //     {id: 1, name: "Veggie Burger"},
-    //     {id: 2, name: "Pasta"},
-    //     {id: 3, name: "Curry"},
-    //     {id: 4, name: "Veggie Pizza"},
-    //     {id: 5, name: "Veggie Falafel"}
-    // ];
-
-    // Populate allergens dropdown
-    // mockVegetarisch.forEach(a => {
-    //     const opt = document.createElement("option");
-    //     opt.value = a.id;
-    //     opt.textContent = a.name;
-    //     vegetarisch.appendChild(opt);
-    // });
-
-    // API CALL VEGETARISCH
-    try{
-        const response = await getAllMeals();
-        if(response.error || response.message){
-            console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
-        }else{
-            console.log("Mahlzeiten API Response:", response);
-            response.forEach(meal => {
-                if(meal.category_id === 2){
+                else if(meal.category_id === 2){
                     const opt = document.createElement("option");
                     opt.value = meal.id;
                     opt.textContent = meal.name;
                     vegetarisch.appendChild(opt);
                 }
-            });
-        }
-    }catch(err){
-        console.error("Fehler beim Abrufen der Mahlzeiten:", err);
-    }
-
-    // MOCK Salat
-    // const mockSalat = [
-    //     {id: 1, name: "Greek Salad"},
-    //     {id: 2, name: "Caesar Salad"},
-    //     {id: 3, name: "Coleslaw"},
-    //     {id: 4, name: "Chicken Salad"},
-    //     {id: 5, name: "Fruit Salad"}
-    // ];
-
-    // Populate allergens dropdown
-    // mockSalat.forEach(a => {
-    //     const opt = document.createElement("option");
-    //     opt.value = a.id;
-    //     opt.textContent = a.name;
-    //     salat.appendChild(opt);
-    // });
-
-    // API CALL SALAT
-    try{
-        const response = await getAllMeals();
-        if(response.error || response.message){
-            console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
-        }else{
-            console.log("Mahlzeiten API Response:", response);
-            response.forEach(meal => {
-                if(meal.category_id === 3){
+                else if(meal.category_id === 3){
                     const opt = document.createElement("option");
                     opt.value = meal.id;
                     opt.textContent = meal.name;
                     salat.appendChild(opt);
                 }
-            });
-        }
-    }catch(err){
-        console.error("Fehler beim Abrufen der Mahlzeiten:", err);
-    }
-
-    // MOCK Nachhaltige
-    // const mockNachtisch = [
-    //     {id: 1, name: "Cake"},
-    //     {id: 2, name: "Ice Cream"},
-    //     {id: 3, name: "Fruit"}
-
-    // ];
-
-    // Populate allergens dropdown
-    // mockNachtisch.forEach(a => {
-    //     const opt = document.createElement("option");
-    //     opt.value = a.id;
-    //     opt.textContent = a.name;
-    //     nachtisch.appendChild(opt);
-    // });
-
-    // API CALL NACHTISCH
-    try{
-        const response = await getAllMeals();
-        if(response.error || response.message){
-            console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
-        }else{
-            console.log("Mahlzeiten API Response:", response);
-            response.forEach(meal => {
-                if(meal.category_id === 4){
+                else if(meal.category_id === 4){
                     const opt = document.createElement("option");
                     opt.value = meal.id;
                     opt.textContent = meal.name;
@@ -165,6 +64,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }catch(err){
         console.error("Fehler beim Abrufen der Mahlzeiten:", err);
     }
+
 
     // --------------------
     // Validation functions
@@ -224,27 +124,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     salat.addEventListener("blur", validateSalat);
     nachtisch.addEventListener("blur", validateNachtisch);
 
-    // --------------------
-    // Mock Submit validation
-    // --------------------
-    // form.addEventListener("submit", e => {
-    //     e.preventDefault();
-
-    //     const isValid =
-    //         validateDate() &&
-    //         validateFleischhaltige() &&
-    //         validateVegetarisch() &&
-    //         validateSalat() &&
-    //         validateNachtisch();
-
-    //     if(isValid){
-    //         console.log("MealPlan is valid! Ready for API submit");
-    //         form.reset();
-    //     }else{
-    //         console.log("Form has errors");
-    //     }
-    // });
-
     // API Submit Meals
     form.addEventListener("submit", async e => {
         e.preventDefault();
@@ -253,17 +132,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const selectedDate = new Date(date.value);
             const formattedDate = selectedDate.toISOString().split("T")[0];
     
-            //API Upload each meal id
-            // for(let i = 0; i < 4; i++){
-            //     const mealId = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value][i];
-            //     const category = ["Fleischhaltige", "Vegetarisch", "Salat", "Nachtisch"][i];
-            //     const response = await StoreMenu(token, formattedDate, mealId);
-            //     if(response.error || response.message){
-            //         console.error(`Fehler beim Hochladen der ${category}-Kategorie:`, response.error || response.message);
-            //     }else{
-            //         console.log(`${category} erfolgreich hochgeladen:`, response);
-            //     }
-            // }
     
             //API UPLOAD ALL MEALS IN ONE CALL
             const mealIds = [fleischhaltige.value, vegetarisch.value, salat.value, nachtisch.value];

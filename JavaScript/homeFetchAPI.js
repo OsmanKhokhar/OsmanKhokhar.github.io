@@ -91,12 +91,13 @@ async function LoadMealsData(){
     }
 
     //Fleischhaltiges Gericht: extract info from menuData and display it on the page
-    // IDs: FleischName, FleischPreis
+    // IDs: FleischName, FleischPreis, infoFleisch (Allergies and Additives) (infoFleisch is an image title)
     if(menuData.meals && menuData.meals.length > 0){
         const fleischhaltigeMeal = menuData.meals.find(meal => meal.category_id === 1);
         if(fleischhaltigeMeal){
             document.getElementById("FleischName").textContent = fleischhaltigeMeal.name;
             document.getElementById("FleischPreis").textContent = `${fleischhaltigeMeal.price} €`;
+            document.getElementById("infoFleisch").textContent = `Allergene: ${fleischhaltigeMeal.allergies.join(", ")} | Zusatzstoffe: ${fleischhaltigeMeal.additives.join(", ")}`;
         }
     }
 
@@ -107,6 +108,7 @@ async function LoadMealsData(){
         if(vegetarischMeal){
             document.getElementById("VegetarischName").textContent = vegetarischMeal.name;
             document.getElementById("VegetarischPreis").textContent = `${vegetarischMeal.price} €`;
+            document.getElementById("infoVeggie").textContent = `Allergene: ${vegetarischMeal.allergies.join(", ")} | Zusatzstoffe: ${vegetarischMeal.additives.join(", ")}`;
         }
     }
 
@@ -117,6 +119,7 @@ async function LoadMealsData(){
         if(salatMeal){
             document.getElementById("SalatbarName").textContent = salatMeal.name;
             document.getElementById("SalatbarPreis").textContent = `${salatMeal.price} €`;
+            document.getElementById("infoSalad").textContent = `Allergene: ${salatMeal.allergies.join(", ")} | Zusatzstoffe: ${salatMeal.additives.join(", ")}`;
         }
     }
 
@@ -127,6 +130,7 @@ async function LoadMealsData(){
         if(nachtischMeal){
             document.getElementById("DessertName").textContent = nachtischMeal.name;
             document.getElementById("DessertPreis").textContent = `${nachtischMeal.price} €`;
+            document.getElementById("infoDessert").textContent = `Allergene: ${nachtischMeal.allergies.join(", ")} | Zusatzstoffe: ${nachtischMeal.additives.join(", ")}`;
         }
     }
 
