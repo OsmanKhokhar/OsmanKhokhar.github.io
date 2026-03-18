@@ -17,16 +17,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const namePattern = /^[A-Za-z\s]+$/;
 
-    // MOCK FLEISCHHALTIGE
-    // const mockFleischhaltige = [
-    //     {id: 1, name: "Steak"},
-    //     {id: 2, name: "Chicken"},
-    //     {id: 3, name: "Pork"},
-    //     {id: 4, name: "Chicken Burger"},
-    //     {id: 5, name: "Chicken Curry"},
-    //     {id: 6, name: "Chicken Kebab"}
-    // ];
-
     // API CALL FLEISCHHALTIGE
     try{
         const response = await getAllMeals();

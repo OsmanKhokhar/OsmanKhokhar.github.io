@@ -6,7 +6,6 @@ const additiveId = document.getElementById("additiveId");
 const nameError = document.getElementById("nameError");
 const additiveError = document.getElementById("idError");
 
-
 // Letters + spaces only
 const namePattern = /^[A-Za-z\s]+$/;
 

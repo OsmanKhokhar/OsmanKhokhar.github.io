@@ -55,19 +55,6 @@ document.getElementById("loginForm")?.addEventListener("submit", async function(
     }
 });
 
-// FAKE DATABASE LOGIN (REPLACE LATER)
-//   if (username === "admin" && password === "1234") {
-//     storageService.set("isLoggedIn", "true");
-//     storageService.set("username", username);
-
-//     window.location.href = "login.html";
-//   } else {
-//     errorMsg.textContent = "Ungültiger Benutzername oder ungültiges Passwort!";
-//     errorMsg.classList.remove("hidden");
-//   }
-// });
-
-
 // ---------- NAVBAR LOGIN / LOGOUT ----------
 document.addEventListener("DOMContentLoaded", () => {
     const authBtn = document.getElementById("authBtn");

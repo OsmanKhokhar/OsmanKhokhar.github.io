@@ -6,7 +6,6 @@ const allergyId = document.getElementById("allergyId");
 const nameError = document.getElementById("nameError");
 const allergyError = document.getElementById("allergyError");
 
-
 // Letters + spaces only
 const namePattern = /^[A-Za-z\s]+$/;
 

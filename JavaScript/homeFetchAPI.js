@@ -4,7 +4,7 @@ import { getSpecificMenu } from "./api.js";
 
 const date = new Date();
 
-/*Check if date is weekend, if so set to next Monday*/
+/* Check if date is weekend, if so set to next Monday */
 if(date.getDay() === 6){
     date.setDate(date.getDate() + 2);
 }else if(date.getDay() === 0){
@@ -13,7 +13,7 @@ if(date.getDay() === 6){
 
 function getDayOfWeek(date){
     const weekday = new Date(date).getDay();
-    return isNaN(weekday) ? null : ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'][weekday];
+    return Number.isNaN(weekday) ? null : ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'][weekday];
 }
 
 /* INITIALIZE DATE DISPLAY */
@@ -38,7 +38,7 @@ function changeDayOfWeek(offset){
     document.getElementById("datum").textContent = date.toLocaleDateString('en-GB');
 
     /* Update meal data for the new date */
-    LoadMealsData();
+    loadMealsData();
 
     /* Update active link styling */
     document.querySelectorAll('.UntereNavigation span').forEach(dayLink => {
@@ -81,7 +81,7 @@ document.querySelector('.WeekArrow.right').addEventListener('click', function(){
 
 // API CALL MENU DATA
 
-async function LoadMealsData(){
+async function loadMealsData(){
     const menuData = await getSpecificMenu(date.toISOString().split("T")[0]);
     
     if(menuData.error || menuData.message){
@@ -90,7 +90,7 @@ async function LoadMealsData(){
         console.log("Menü API Response:", menuData);
     }
 
-    //Fleischhaltiges Gericht: extract info from menuData and display it on the page
+    // Fleischhaltiges Gericht: extract info from menuData and display it on the page
     // IDs: FleischName, FleischPreis, infoFleisch (Allergies and Additives) (infoFleisch is an image title)
     if(menuData.meals && menuData.meals.length > 0){
         const fleischhaltigeMeal = menuData.meals.find(meal => meal.category_id === 1);
@@ -101,7 +101,7 @@ async function LoadMealsData(){
         }
     }
 
-    //Vegetarisches Gericht: extract info from menuData and display it on the page
+    // Vegetarisches Gericht: extract info from menuData and display it on the page
     // IDs: VegetarischName, VegetarischPreis
     if(menuData.meals && menuData.meals.length > 0){
         const vegetarischMeal = menuData.meals.find(meal => meal.category_id === 2);
@@ -148,4 +148,4 @@ async function LoadMealsData(){
 
 }
 
-LoadMealsData();
+loadMealsData();
