@@ -124,7 +124,7 @@ export async function getAllMeals(){
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
-    })
+    });
 
     return response.json();
 }
