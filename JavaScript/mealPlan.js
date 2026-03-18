@@ -1,4 +1,4 @@
-import { listAllMeals, storeMenu } from "./api.js";
+import { getAllMeals, storeMenu } from "./api.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // API CALL FLEISCHHALTIGE
     try{
-        const response = await listAllMeals();
+        const response = await getAllMeals();
         if(response.error || response.message){
             console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
         }else{
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // API CALL VEGETARISCH
     try{
-        const response = await listAllMeals();
+        const response = await getAllMeals();
         if(response.error || response.message){
             console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
         }else{
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // API CALL SALAT
     try{
-        const response = await listAllMeals();
+        const response = await getAllMeals();
         if(response.error || response.message){
             console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
         }else{
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // API CALL NACHTISCH
     try{
-        const response = await listAllMeals();
+        const response = await getAllMeals();
         if(response.error || response.message){
             console.error("Fehler beim Abrufen der Mahlzeiten:", response.error || response.message);
         }else{
