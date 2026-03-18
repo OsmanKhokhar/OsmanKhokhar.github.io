@@ -19,7 +19,8 @@ export async function login(username, password){
     return response.json();
 }
 
-export async function logout(token){
+export async function logout(){
+    const token = storageService.get('token');
     const response = await fetch(`${config.API_BASE_URL}/auth/logout`, {
         method: 'POST',
         headers: {
@@ -32,7 +33,8 @@ export async function logout(token){
     return response.json();
 }
 
-export async function refreshAccessToken(refreshToken){
+export async function refreshAccessToken(){
+    const refreshToken = storageService.get('refreshToken');
     const response = await fetch(`${config.API_BASE_URL}/auth/refresh`, {
         method: 'POST',
         headers: {
@@ -45,7 +47,8 @@ export async function refreshAccessToken(refreshToken){
     return response.json();
 }
 
-export async function getProfile(token){
+export async function getProfile(){
+    const token = storageService.get('token');
     const response = await fetch(`${config.API_BASE_URL}/user`, {
         method: 'POST',
         headers: {
@@ -130,7 +133,8 @@ export async function getAllMeals(){
     return response.json();
 }
 
-export async function storeMenu(token, date, mealId){
+export async function storeMenu(date, mealId){
+    const token = storageService.get('token');
     const response = await fetch(`${config.API_BASE_URL}/menus`, {
         method: 'POST',
         headers: {
