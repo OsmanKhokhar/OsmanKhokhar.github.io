@@ -105,14 +105,26 @@ export async function getAdditive(id){
     return response.json();
 }
 
-export async function listAllMeals(){
+export async function getMeal(id){
+    const response = await fetch(`${config.API_BASE_URL}/meals/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+    });
+
+    return response.json();
+}
+
+export async function getAllMeals(){
     const response = await fetch(`${config.API_BASE_URL}/meals`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         },
-    })
+    });
 
     return response.json();
 }
@@ -143,4 +155,6 @@ export default {
     getAllergen,
     getAllAdditives,
     getAdditive,
+    getMeal,
+    getAllMeals,
 }
