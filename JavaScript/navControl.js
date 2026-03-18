@@ -59,12 +59,12 @@ window.initNavbar = function(){
         // ---------- LOGOUT ----------
         if(logoutLink){
             logoutLink.style.display = "block";
-            logoutLink.onclick = async(e) => {
+            logoutLink.addEventListener("click", async(e) => {
                 e.preventDefault();
                 await authenticationService.logout();
                 storageService.destroy();
                 initNavbar();
-            };
+            });
         }
     });
 
