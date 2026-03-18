@@ -106,6 +106,7 @@ export async function getAdditive(id){
 }
 
 export async function listAllMeals(){
+export async function getAllMeals(){
     const response = await fetch(`${config.API_BASE_URL}/meals`, {
         method: 'GET',
         headers: {
