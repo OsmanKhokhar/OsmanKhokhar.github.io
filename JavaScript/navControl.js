@@ -1,4 +1,5 @@
 import storageService from "./services/storage/storageService.js";
+import authenticationService from "./api.js";
 
 // =================== NAVBAR ===================
 window.initNavbar = function(){
@@ -58,9 +59,11 @@ window.initNavbar = function(){
         // ---------- LOGOUT ----------
         if(logoutLink){
             logoutLink.style.display = "block";
-            logoutLink.onclick = (e) => {
+            logoutLink.onclick = async(e) => {
                 e.preventDefault();
-                logout(); // <--- This already logs out & calls initNavbar()
+                await authenticationService.logout();
+                storageService.destroy();
+                initNavbar();
             };
         }
     });
@@ -72,22 +75,6 @@ window.initNavbar = function(){
     if(btn && mobileMenu){
         btn.onclick = () => mobileMenu.classList.toggle("hidden");
     }
-};
-
-// =================== MOCK AUTH ===================
-window.loginAdmin = function(){
-    storageService.set("user", {role: "admin"});
-    initNavbar();
-};
-
-window.loginUser = function(){
-    storageService.set("user", {role: "user"});
-    initNavbar();
-};
-
-window.logout = function(){
-    storageService.remove("user");
-    initNavbar();
 };
 
 // =================== INIT ===================
