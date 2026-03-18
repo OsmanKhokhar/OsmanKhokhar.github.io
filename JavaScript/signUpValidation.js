@@ -136,8 +136,6 @@ form.addEventListener("submit", function(e){
             return;
         }
         
-        console.log("Registration successful:", response);
-        
         form.reset();
     }
 });
