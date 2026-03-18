@@ -1,6 +1,6 @@
 'use strict';
 
-import { STORAGE_KEY } from "../config.js";
+import { STORAGE_KEY } from "../../config.js";
 
 let storage = JSON.parse(sessionStorage.getItem(STORAGE_KEY)) ?? {};
 
