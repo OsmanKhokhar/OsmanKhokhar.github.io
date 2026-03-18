@@ -1,6 +1,7 @@
 'use strict';
 
 import * as config from "./config.js";
+import storageService from "./services/storage/storageService.js";
 
 export async function login(username, password){
     const response = await fetch(`${config.API_BASE_URL}/auth`, {
@@ -158,12 +159,14 @@ export async function getSpecificMenu(date){
     return response.json();
 }
 
-export function register(username, first_name, last_name, password, passwordConfirmation, isAdmin = false){
-    const response = fetch(`${config.API_BASE_URL}/auth/register`, {
+export async function register(username, first_name, last_name, password, passwordConfirmation, isAdmin = false){
+    const token = storageService.get('token');
+    const response = await fetch(`${config.API_BASE_URL}/users`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
+            'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
             username: username,
