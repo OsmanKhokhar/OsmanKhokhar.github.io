@@ -129,7 +129,12 @@ form.addEventListener("submit", function(e){
         isConfirmValid
     ){
         
-        const response = register(username.value, firstName.value, lastName.value, password.value, confirmPassword.value);
+        try{
+            const response = register(username.value, firstName.value, lastName.value, password.value, confirmPassword.value);
+        }catch(error){
+            console.error("Registration failed:", error);
+            return;
+        }
         
         console.log("Registration successful:", response);
         
