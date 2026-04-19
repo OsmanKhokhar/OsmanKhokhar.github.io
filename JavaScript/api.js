@@ -4,7 +4,7 @@ import * as config from "./config.js";
 import storageService from "./services/storage/storageService.js";
 
 export async function login(username, password){
-    const response = await fetch(`${config.API_BASE_URL}/auth`, {
+    const response = await fetch(`${config.API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
